@@ -1,0 +1,14 @@
+<div class="jumbotron" ng-controller="HomeCtrl">
+  <h2>You've got <span class="emphasis">{{getTotalTodos()}}</span> things to do</h2>
+  <div>
+    <input type="text" placeholder="I need to..." ng-model="todoText" ng-model-instant/>
+    <button ng-click="addTodoTask()">Add</button>
+    <button ng-click="clearCompleted()" id="btnNextOp">Hide Completed Tasks</button>
+  </div>
+  <div>
+    <ul ng-repeat="todo in todos">
+      <li><input type="checkbox" ng-model="todo.completed"/><span>{{todo.task}}</span></li>
+    </ul>
+  </div>
+</div>
+
