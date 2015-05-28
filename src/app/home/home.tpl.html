@@ -1,13 +1,58 @@
-<div class="jumbotron" ng-controller="HomeCtrl">
-  <h2>You've got <span class="emphasis">{{getTotalTodos()}}</span> things to do</h2>
-  <div>
-    <input type="text" placeholder="I need to..." ng-model="todoText" ng-model-instant/>
-    <button ng-click="addTodoTask()">Add</button>
-    <button ng-click="clearCompleted()" id="btnNextOp">Hide Completed Tasks</button>
+<div class="row">
+  <div class="page-header">
+    <a class="pull-right btn btn-primary" ng-click="addDashboard()"><i class="glyphicon glyphicon-plus"></i> Add Dashboard</a>
+    <a class="pull-right btn btn-primary" ng-click="addWidget()"><i class="glyphicon glyphicon-plus"></i> Add Widget</a>
+    <a class="pull-right btn btn-warning" ng-click="clear()"><i class="glyphicon glyphicon-trash"></i> Clear</a>
+    <a class="pull-right btn btn-primary" ng-click="printJson()"><i class="glyphicon"></i> Get Json</a>
+    <h1 style="display: inline-block; width: 200px;">Dashboards</h1>
+    <select class="form-control" style="width: 150px; margin-bottom: 20px; display:inline-block;" ng-model="selectedDashboardId" ng-options="d.id as d.name for d in dashboards | object2Array | orderBy:'id'">
+    </select>
+    <!--<div>
+      <img src="images/loader.gif">
+    </div>-->
   </div>
-  <div>
-    <ul ng-repeat="todo in todos">
-      <li><input type="checkbox" ng-model="todo.completed"/><span>{{todo.task}}</span></li>
+  <div gridster="gridsterOptions">
+    <ul>
+      <li gridster-item="widget" ng-repeat="widget in dashboard.widgets">
+        <div class="box" ng-controller="CustomWidgetCtrl">
+          <div class="box-header">
+            <h3>{{ widget.name }}</h3>
+            <div class="box-header-btns pull-right">
+              <a title="settings" ng-click="openSettings(widget)"><img class="icon_setting_class" src="./assets/images/setting_icon.png"></a>
+              <a title="Remove widget" ng-click="remove(widget)"><img class="icon_remove_class" src="./assets/images/remove.png"></a>
+            </div>
+          </div>
+          <div class="box-content" id="{{widget.id}}">
+            {{widget.chartType}}
+            <div ng-if="widget.chartType == 'line'">
+              <canvas id="line" class="chart chart-line" data="widget.data"
+                      labels="widget.labels" legend="true" series="widget.series"
+                      click="onClick">
+              </canvas>
+            </div>
+            <div ng-if="widget.chartType == 'bar'">
+              <canvas id="bar" class="chart chart-bar" data="widget.data"
+                      labels="widget.labels"></canvas>
+            </div>
+            <div ng-if="widget.chartType == 'doughnut'">
+              <canvas id="doughnut" class="chart chart-doughnut" data="widget.data"
+                      labels="widget.labels"></canvas>
+            </div>
+            <div ng-if="widget.chartType == 'radar'">
+              <canvas id="radar" class="chart chart-radar" data="widget.data"
+                      labels="widget.labels"></canvas>
+            </div>
+            <div ng-if="widget.chartType == 'pie'">
+              <canvas id="pie" class="chart chart-pie" data="widget.data"
+                      labels="widget.labels"></canvas>
+            </div>
+            <div ng-if="widget.chartType == 'polar-area'">
+              <canvas id="polar-area" class="chart chart-polar-area" data="widget.data"
+                      labels="widget.labels"></canvas>
+            </div>
+          </div>
+        </div>
+      </li>
     </ul>
   </div>
 </div>

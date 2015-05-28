@@ -98,6 +98,7 @@ angular.module( 'Vizdum.test3', [
         $scope.$watch('selectedDashboardId', function (newVal, oldVal) {
             $scope.selectDashboard(newVal);
         });
+
         $scope.selectDashboard = function (dashId) {
             console.log('In here');
             $scope.selectedDashboardId = dashId;

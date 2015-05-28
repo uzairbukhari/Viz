@@ -72,14 +72,11 @@ module.exports = {
         'vendor/jquery/dist/jquery.min.js',
         'vendor/angular-resource/angular-resource.min.js',
         'vendor/gridster/angular-gridster.js',
-        'vendor/line-chart/line-chart.min.js',
-        'vendor/nvd3/nv.d3.min.js',
+        /*'vendor/nvd3/nv.d3.min.js',*/
         'vendor/Chart.js/Chart.min.js',
-        'vendor/angular-nvd3/dist/angular-nvd3.min.js',
         'vendor/angular-chart.js/dist/angular-chart.min.js'
     ],
     css: [
-        'vendor/nvd3/nv.d3.min.css',
         'vendor/angular-chart.js/dist/angular-chart.css'
     ],
     assets: []

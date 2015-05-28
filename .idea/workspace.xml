@@ -2,30 +2,56 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a87d6015-1dd7-478f-ba22-530396346491" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/images/remove.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/images/setting_icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/test3/create_widget.tpl.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/test3/new_dashboard.tpl.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/test3/widget_settings.tpl.html" />
-      <change type="DELETED" beforePath="C:\wamp\www\Viz\build\assets\ngbp-0.3.2.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\wamp\www\Viz\src\app\charts\charts.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\wamp\www\Viz\src\app\charts\charts.tpl.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\wamp\www\Viz\src\app\test2\test2.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\wamp\www\Viz\src\app\test2\test2.tpl.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\wamp\www\Viz\src\app\test\test.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\wamp\www\Viz\src\app\test\test.tpl.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/app/app.js" afterPath="$PROJECT_DIR$/build/src/app/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/app.js" afterPath="$PROJECT_DIR$/src/app/app.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/home/create_widget.tpl.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/home/new_dashboard.tpl.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/home/widget_settings.tpl.html" />
+      <change type="DELETED" beforePath="C:\wamp\www\Viz\build\assets\fonts\glyphicons-halflings-regular.eot" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\Viz\build\assets\fonts\glyphicons-halflings-regular.svg" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\Viz\build\assets\fonts\glyphicons-halflings-regular.ttf" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\Viz\build\assets\fonts\glyphicons-halflings-regular.woff" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\Viz\build\assets\fonts\glyphicons-halflings-regular.woff2" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\Viz\build\assets\images\remove.jpg" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\Viz\build\src\app\charts\charts.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\Viz\build\src\app\test2\test2.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\Viz\build\src\app\test\test.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\Viz\build\vendor\angular-nvd3\dist\angular-nvd3.min.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\Viz\build\vendor\line-chart\line-chart.min.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\Viz\build\vendor\nvd3\nv.d3.min.css" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\Viz\build\vendor\nvd3\nv.d3.min.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\Viz\vendor\angular-nvd3\.bower.json" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\Viz\vendor\angular-nvd3\Gruntfile.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\Viz\vendor\angular-nvd3\LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\Viz\vendor\angular-nvd3\README.md" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\Viz\vendor\angular-nvd3\bower.json" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\Viz\vendor\angular-nvd3\dist\angular-nvd3.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\Viz\vendor\angular-nvd3\dist\angular-nvd3.min.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\Viz\vendor\angular-nvd3\package.json" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\Viz\vendor\line-chart\line-chart.min.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\Viz\vendor\nvd3\.bower.json" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\Viz\vendor\nvd3\GruntFile.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\Viz\vendor\nvd3\LICENSE.md" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\Viz\vendor\nvd3\Makefile" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\Viz\vendor\nvd3\README.md" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\Viz\vendor\nvd3\bower.json" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\Viz\vendor\nvd3\build.bat" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\Viz\vendor\nvd3\nv.d3.css" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\Viz\vendor\nvd3\nv.d3.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\Viz\vendor\nvd3\nv.d3.min.css" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\Viz\vendor\nvd3\nv.d3.min.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\Viz\vendor\nvd3\package.json" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\Viz\vendor\nvd3\src\nv.d3.css" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/assets/Vizdum-0.0.1.css" afterPath="$PROJECT_DIR$/build/assets/Vizdum-0.0.1.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower.json" afterPath="$PROJECT_DIR$/bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.config.js" afterPath="$PROJECT_DIR$/build.config.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/app/home/home.js" afterPath="$PROJECT_DIR$/build/src/app/home/home.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/home/home.js" afterPath="$PROJECT_DIR$/src/app/home/home.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/home/home.tpl.html" afterPath="$PROJECT_DIR$/src/app/home/home.tpl.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/index.html" afterPath="$PROJECT_DIR$/build/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/index.html" afterPath="$PROJECT_DIR$/src/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/common/paths.js" afterPath="$PROJECT_DIR$/build/src/common/paths.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/common/paths.js" afterPath="$PROJECT_DIR$/src/common/paths.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/assets/style.css" afterPath="$PROJECT_DIR$/build/assets/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/assets/style.css" afterPath="$PROJECT_DIR$/src/assets/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/karma-unit.js" afterPath="$PROJECT_DIR$/build/karma-unit.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/templates-app.js" afterPath="$PROJECT_DIR$/build/templates-app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/src/app/test3/test3.js" afterPath="$PROJECT_DIR$/build/src/app/test3/test3.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/test3/test3.js" afterPath="$PROJECT_DIR$/src/app/test3/test3.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/test3/test3.tpl.html" afterPath="$PROJECT_DIR$/src/app/test3/test3.tpl.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ng-boilerplate.iws" />
@@ -47,11 +73,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="bower.json" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/bower.json">
+      <file leaf-file-name="home.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/home/home.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3170029">
-              <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="176" column="17" selection-start-line="176" selection-start-column="17" selection-end-line="176" selection-end-column="17" />
+              <folding>
+                <element signature="e#1841#2628#0" expanded="false" />
+                <element signature="e#2880#5985#0" expanded="false" />
+                <element signature="e#6047#6101#0" expanded="false" />
+                <element signature="e#6146#6533#0" expanded="false" />
+                <element signature="e#6575#6963#0" expanded="false" />
+                <element signature="e#7037#7092#0" expanded="false" />
+                <element signature="e#7147#7527#0" expanded="false" />
+                <element signature="e#7691#8060#0" expanded="false" />
+                <element signature="e#8110#8172#0" expanded="false" />
+                <element signature="e#8241#8660#0" expanded="false" />
+                <element signature="e#8748#9319#0" expanded="false" />
+                <element signature="e#9411#11741#0" expanded="false" />
+                <element signature="e#11835#12558#0" expanded="false" />
+                <element signature="e#14012#14197#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.43659943">
+              <caret line="38" column="40" selection-start-line="38" selection-start-column="40" selection-end-line="38" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -76,7 +127,6 @@
         <option value="$PROJECT_DIR$/src/app/test2/test2.tpl.html" />
         <option value="$PROJECT_DIR$/src/app/test/test.tpl.html" />
         <option value="$PROJECT_DIR$/src/app/test/test.js" />
-        <option value="$PROJECT_DIR$/build.config.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/build/src/common/paths.js" />
         <option value="$PROJECT_DIR$/src/common/paths.js" />
@@ -84,12 +134,15 @@
         <option value="$PROJECT_DIR$/build/assets/Vizdum-0.0.1.css" />
         <option value="$PROJECT_DIR$/src/app/test3/create_widget.tpl.html" />
         <option value="$PROJECT_DIR$/src/app/test3/widget_settings.tpl.html" />
-        <option value="$PROJECT_DIR$/src/app/test3/test3.js" />
         <option value="$PROJECT_DIR$/src/app/test3/test3.tpl.html" />
         <option value="$PROJECT_DIR$/src/assets/style.css" />
         <option value="$PROJECT_DIR$/src/app/app.js" />
-        <option value="$PROJECT_DIR$/src/index.html" />
         <option value="$PROJECT_DIR$/bower.json" />
+        <option value="$PROJECT_DIR$/build.config.js" />
+        <option value="$PROJECT_DIR$/src/app/test3/test3.js" />
+        <option value="$PROJECT_DIR$/src/app/home/home.tpl.html" />
+        <option value="$PROJECT_DIR$/src/app/home/home.js" />
+        <option value="$PROJECT_DIR$/src/index.html" />
       </list>
     </option>
   </component>
@@ -178,6 +231,46 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ng-boilerplate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Viz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ng-boilerplate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Viz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="build" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -195,11 +288,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp\www\Viz\src\app\home" />
       <recent name="C:\wamp\www\Viz\src\assets\images" />
       <recent name="C:\wamp\www\Viz\src\app\test3" />
       <recent name="C:\wamp\www\Viz\src\assets" />
       <recent name="C:\wamp\www\ng-demo\ng-boilerplate\src\app" />
-      <recent name="C:\wamp\www\ng-demo\ng-boilerplate\src\app\charts" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\wamp\www\ng-demo\ng-boilerplate\vendor\angular-nvd3\dist" />
@@ -264,19 +357,19 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="1" width="1598" height="860" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24968395" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24968395" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Grunt " active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32756326" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -344,13 +437,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/line-chart/line-chart.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="7.1369295">
-          <caret line="5" column="29597" selection-start-line="5" selection-start-column="29597" selection-end-line="5" selection-end-column="29597" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.bowerrc">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -358,25 +444,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/nvd3/nv.d3.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="897" column="34" selection-start-line="897" selection-start-column="34" selection-end-line="897" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/angular-chart.js/bower.json">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.518732">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/src/app/test/test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -437,13 +508,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Gruntfile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.7344398">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CONTRIBUTING.md">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -462,13 +526,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6127248">
-          <caret line="76" column="39" selection-start-line="76" selection-start-column="39" selection-end-line="76" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -577,26 +634,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/test3/test3.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="232" column="24" selection-start-line="232" selection-start-column="24" selection-end-line="232" selection-end-column="24" />
-          <folding>
-            <element signature="e#1977#2365#0" expanded="false" />
-            <element signature="e#2407#2796#0" expanded="false" />
-            <element signature="e#3523#3892#0" expanded="false" />
-            <element signature="e#4073#4492#0" expanded="false" />
-            <element signature="e#7641#8364#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/test3/widget_settings.tpl.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6541787">
           <caret line="55" column="157" selection-start-line="55" selection-start-column="137" selection-end-line="55" selection-end-column="157" />
           <folding>
-            <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#1;n#form#0;n#div#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -609,41 +652,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/app.js">
+    <entry file="file://$PROJECT_DIR$/bower.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.48991355">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43227667">
-          <caret line="48" column="21" selection-start-line="48" selection-start-column="21" selection-end-line="48" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/home/home.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.659751">
-          <caret line="69" column="15" selection-start-line="59" selection-start-column="12" selection-end-line="69" selection-end-column="15" />
-          <folding>
-            <element signature="e#2231#2759#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/test3/test3.tpl.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34582132">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/home/home.tpl.html">
+    <entry file="file://$PROJECT_DIR$/Gruntfile.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -651,10 +668,108 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bower.json">
+    <entry file="file://$PROJECT_DIR$/build.config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3170029">
-          <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.6680498">
+          <caret line="78" column="10" selection-start-line="78" selection-start-column="10" selection-end-line="78" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38727525">
+          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/test3/test3.tpl.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34582132">
+          <caret line="12" column="13" selection-start-line="0" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/home/home.spec.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/home/create_widget.tpl.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/test3/test3.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8063624">
+          <caret line="332" column="7" selection-start-line="152" selection-start-column="4" selection-end-line="332" selection-end-column="7" />
+          <folding>
+            <element signature="e#708#4500#0" expanded="false" />
+            <element signature="e#775#1562#0" expanded="false" />
+            <element signature="e#1593#1840#0" expanded="false" />
+            <element signature="e#1878#1932#0" expanded="false" />
+            <element signature="e#1977#2365#0" expanded="false" />
+            <element signature="e#2407#2796#0" expanded="false" />
+            <element signature="e#2870#2925#0" expanded="false" />
+            <element signature="e#2980#3360#0" expanded="false" />
+            <element signature="e#3524#3893#0" expanded="false" />
+            <element signature="e#3943#4005#0" expanded="false" />
+            <element signature="e#4074#4493#0" expanded="false" />
+            <element signature="e#4580#5152#0" expanded="false" />
+            <element signature="e#5258#7534#0" expanded="false" />
+            <element signature="e#7642#8365#0" expanded="false" />
+            <element signature="e#8472#9758#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/home/home.tpl.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.028818443">
+          <caret line="1" column="2" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="2" />
+          <folding>
+            <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/home/home.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="176" column="17" selection-start-line="176" selection-start-column="17" selection-end-line="176" selection-end-column="17" />
+          <folding>
+            <element signature="e#1841#2628#0" expanded="false" />
+            <element signature="e#2880#5985#0" expanded="false" />
+            <element signature="e#6047#6101#0" expanded="false" />
+            <element signature="e#6146#6533#0" expanded="false" />
+            <element signature="e#6575#6963#0" expanded="false" />
+            <element signature="e#7037#7092#0" expanded="false" />
+            <element signature="e#7147#7527#0" expanded="false" />
+            <element signature="e#7691#8060#0" expanded="false" />
+            <element signature="e#8110#8172#0" expanded="false" />
+            <element signature="e#8241#8660#0" expanded="false" />
+            <element signature="e#8748#9319#0" expanded="false" />
+            <element signature="e#9411#11741#0" expanded="false" />
+            <element signature="e#11835#12558#0" expanded="false" />
+            <element signature="e#14012#14197#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43659943">
+          <caret line="38" column="40" selection-start-line="38" selection-start-column="40" selection-end-line="38" selection-end-column="40" />
           <folding />
         </state>
       </provider>
