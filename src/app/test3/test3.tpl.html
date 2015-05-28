@@ -1,20 +1,14 @@
 <div class="row">
   <h1 class="page-header">
-    The is a <a href="#testView"> test page</a>.
-    <small>We are checking routing.</small>
+    Vizdum!!....
   </h1>
-  <h1>Add widgets dynamically</h1>
-  <p>Create a grid adding widgets from an Array (not from HTML) using <code>add_widget</code> method. Widget position (col, row) not specified.</p>
-
-  <!--<div class="gridster ready">
-    <ul></ul>
-  </div>-->
   <div class="page-header">
+    <a class="pull-right btn btn-primary" ng-click="addDashboard()"><i class="glyphicon glyphicon-plus"></i> Add Dashboard</a>
     <a class="pull-right btn btn-primary" ng-click="addWidget()"><i class="glyphicon glyphicon-plus"></i> Add Widget</a>
-    &nbsp&nbsp&nbsp<a class="pull-right btn btn-warning" ng-click="clear()"><i class="glyphicon glyphicon-trash"></i> Clear</a>
-    &nbsp&nbsp&nbsp<a class="pull-right btn btn-primary" ng-click="printJson()"><i class="glyphicon"></i> Get Json</a>
-    <h1 style="display: inline-block; width: 200px;">Dashboard</h1>
-    <select class="form-control" style="width: 150px; margin-bottom: 20px; display:inline-block;" ng-change="changeDashboard()" ng-model="selectedDashboardId" ng-options="d.id as d.name for d in dashboards | object2Array | orderBy:'id'">
+    <a class="pull-right btn btn-warning" ng-click="clear()"><i class="glyphicon glyphicon-trash"></i> Clear</a>
+    <a class="pull-right btn btn-primary" ng-click="printJson()"><i class="glyphicon"></i> Get Json</a>
+    <h1 style="display: inline-block; width: 200px;">Dashboards</h1>
+    <select class="form-control" style="width: 150px; margin-bottom: 20px; display:inline-block;" ng-model="selectedDashboardId" ng-options="d.id as d.name for d in dashboards | object2Array | orderBy:'id'">
     </select>
     <!--<div>
       <img src="images/loader.gif">
@@ -27,21 +21,37 @@
           <div class="box-header">
             <h3>{{ widget.name }}</h3>
             <div class="box-header-btns pull-right">
-              <a title="settings" ng-click="openSettings(widget)"><i class="glyphicon glyphicon-cog"></i></a>
-              <a title="Remove widget" ng-click="remove(widget)"><i class="glyphicon glyphicon-trash"></i></a>
+              <a title="settings" ng-click="openSettings(widget)"><img class="icon_setting_class" src="./assets/images/setting_icon.png"></a>
+              <a title="Remove widget" ng-click="remove(widget)"><img class="icon_remove_class" src="./assets/images/remove.png"></a>
             </div>
           </div>
           <div class="box-content" id="{{widget.id}}">
-            <!--{{widget.body}}-->
-            <div ng-if="widget.hasChart3">
-              <canvas id="line" class="chart chart-line" data="data"
-                      labels="labels" legend="true" series="series"
+            {{widget.chartType}}
+            <div ng-if="widget.chartType == 'line'">
+              <canvas id="line" class="chart chart-line" data="widget.data"
+                      labels="widget.labels" legend="true" series="widget.series"
                       click="onClick">
               </canvas>
             </div>
-            <div ng-if="widget.hasChart4">
-              <canvas id="bar" class="chart chart-bar" data="data2"
-                      labels="labels2"></canvas>
+            <div ng-if="widget.chartType == 'bar'">
+              <canvas id="bar" class="chart chart-bar" data="widget.data"
+                      labels="widget.labels"></canvas>
+            </div>
+            <div ng-if="widget.chartType == 'doughnut'">
+              <canvas id="doughnut" class="chart chart-doughnut" data="widget.data"
+                      labels="widget.labels"></canvas>
+            </div>
+            <div ng-if="widget.chartType == 'radar'">
+              <canvas id="radar" class="chart chart-radar" data="widget.data"
+                      labels="widget.labels"></canvas>
+            </div>
+            <div ng-if="widget.chartType == 'pie'">
+              <canvas id="pie" class="chart chart-pie" data="widget.data"
+                       labels="widget.labels"></canvas>
+            </div>
+            <div ng-if="widget.chartType == 'polar-area'">
+              <canvas id="polar-area" class="chart chart-polar-area" data="widget.data"
+                      labels="widget.labels"></canvas>
             </div>
           </div>
         </div>

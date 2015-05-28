@@ -9,7 +9,17 @@ angular.module('paths', []).service('Paths', function () {
             set: 'http://demo3670183.mockable.io/set'
         },
         widgetsConfig: {
-            get: 'http://demo3670183.mockable.io/widgets'
+            get: 'http://demo3670183.mockable.io/dashboard',
+            set: 'http://demo3670183.mockable.io/set'
+        },
+        pie: {
+            get: 'http://demo3670183.mockable.io/pie'
+        },
+        line: {
+            get: 'http://demo3670183.mockable.io/line'
+        },
+        bar: {
+            get: 'http://demo3670183.mockable.io/bar'
         }
     };
 

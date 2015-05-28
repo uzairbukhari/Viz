@@ -45,3 +45,11 @@ form {
 .showLoader {
     background-image: url("images/loading.gif");
 }
+
+.icon_setting_class {
+    height: 20px; width:20px
+}
+
+.icon_remove_class {
+    height: 30px; width:30px
+}
