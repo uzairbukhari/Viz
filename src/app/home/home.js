@@ -55,7 +55,7 @@ angular.module( 'Vizdum.home', [
 /**
  * And of course we define a controller for our route.
  */
-.controller( 'HomeCtrl', function HomeController( $scope, $modal, HttpServices) {
+.controller( 'HomeCtrl', function HomeController( $scope, $modal, $interval, HttpServices) {
         $scope.chart4 = false;
 
         $scope.gridsterOptions = {
@@ -240,6 +240,55 @@ angular.module( 'Vizdum.home', [
                     applyRemoteData(items);
                 }
             );
+
+            // Starting timer for refreshing widget data
+            var stop,
+                chunk = 2;
+            $scope.widgetRefresh = function() {
+                // Don't start a refresh if we are already refreshing
+                if ( angular.isDefined(stop) ) return;
+
+                stop = $interval(function() {
+                    var widgets = $scope.dashboard.widgets,
+                        idArray = [];
+
+                    for(var x in widgets) {
+                        var widgetRefInterval = widgets[x].refreshInterval;
+                        if(widgetRefInterval % 2 == 1) {
+                            if (widgetRefInterval < chunk ) {
+                                widgetRefInterval++;
+                                widgetRefInterval = widgetRefInterval * Math.round(chunk / widgetRefInterval);
+                            } else {
+                                widgetRefInterval++;
+                            }
+                        }
+                        if(widgetRefInterval == 2 || chunk % widgetRefInterval == 0 ) {
+                            idArray.push(widgets[x].id);
+                        }
+                    }
+                    chunk+= 2;
+                    console.log(idArray.join(','));
+                }, 15000);
+            };
+
+            $scope.stopRefresh = function() {
+                console.log('in stop refresh');
+                if (angular.isDefined(stop)) {
+                    $interval.cancel(stop);
+                    stop = undefined;
+                }
+            };
+
+            $scope.resetRefresh = function() {
+
+            };
+
+            $scope.$on('$destroy', function() {
+                // Make sure that the interval is destroyed too
+                $scope.stopRefresh();
+            });
+
+            $scope.widgetRefresh();
         };
 
         var applyRemoteData = function (items) {
