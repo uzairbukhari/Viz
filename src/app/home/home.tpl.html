@@ -5,7 +5,7 @@
     <a class="pull-right btn btn-warning" ng-click="clear()"><i class="glyphicon glyphicon-trash"></i> Clear</a>
     <a class="pull-right btn btn-primary" ng-click="printJson()"><i class="glyphicon"></i> Get Json</a>
     <h1 style="display: inline-block; width: 200px;">Dashboards</h1>
-    <select class="form-control" style="width: 150px; margin-bottom: 20px; display:inline-block;" ng-model="selectedDashboardId" ng-options="d.id as d.name for d in dashboards | object2Array | orderBy:'id'">
+    <select class="form-control" style="width: 150px; margin-bottom: 20px; display:inline-block;" ng-model="selectedDashboardId" ng-options="d.dashboard_id as d.name for d in dashboards | object2Array | orderBy:'id'">
     </select>
     <!--<div>
       <img src="images/loader.gif">

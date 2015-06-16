@@ -60,7 +60,7 @@ angular.module( 'Vizdum.home', [
 
         $scope.gridsterOptions = {
             margins: [20, 20],
-            columns: 4,
+            columns: 20,
             draggable: {
                 handle: 'h3'
             },
@@ -78,105 +78,7 @@ angular.module( 'Vizdum.home', [
             }
         };
 
-        $scope.dashboards = [
-            {
-                "id": "1",
-                "name": "Home",
-                "widgets": []
-            },
-            {
-                "id": "2",
-                "name": "Other",
-                "widgets": [
-                    {
-                        "id": "newWidget1",
-                        "col": 3,
-                        "row": 0,
-                        "sizeY": 1,
-                        "sizeX": 1,
-                        "name": "Widget 1",
-                        "body": "<h1>This is widget 1 body hohohoooo</h1>",
-                        "chartType": "doughnut",
-                        "labels": [
-                            "Download Sales",
-                            "In-Store Sales",
-                            "Mail-Order Sales"
-                        ],
-                        "data": [
-                            300,
-                            500,
-                            100
-                        ]
-                    },
-                    {
-                        "id": "newWidget2",
-                        "col": 3,
-                        "row": 1,
-                        "sizeY": 1,
-                        "sizeX": 1,
-                        "chartType": "pie",
-                        "labels": [
-                            "Download Sales",
-                            "In-Store Sales",
-                            "Mail-Order Sales"
-                        ],
-                        "series": [
-                            "Series A",
-                            "Series B"
-                        ],
-                        "data": [
-                            300,
-                            500,
-                            100
-                        ],
-                        "name": "Widget 2"
-                    },
-                    {
-                        "name": "Line Graph Widget",
-                        "id": "newWidget3",
-                        "sizeX": 3,
-                        "sizeY": 2,
-                        "body": "",
-                        "chartType": "line",
-                        "row": 0,
-                        "col": 0,
-                        "labels": [
-                            "January",
-                            "February",
-                            "March",
-                            "April",
-                            "May",
-                            "June",
-                            "July"
-                        ],
-                        "series": [
-                            "Series A",
-                            "Series B"
-                        ],
-                        "data": [
-                            [
-                                65,
-                                59,
-                                80,
-                                81,
-                                56,
-                                55,
-                                40
-                            ],
-                            [
-                                28,
-                                48,
-                                40,
-                                19,
-                                86,
-                                27,
-                                90
-                            ]
-                        ]
-                    }
-                ]
-            }
-        ];
+        $scope.dashboards = [];
 
         $scope.clear = function () {
             $scope.dashboard.widgets = [];
@@ -213,7 +115,6 @@ angular.module( 'Vizdum.home', [
         });
 
         $scope.selectDashboard = function (dashId) {
-            console.log('In here');
             $scope.selectedDashboardId = dashId;
             var dashboards = $scope.dashboards;
             $scope.dashboard = $scope.dashboards[0];
@@ -222,28 +123,73 @@ angular.module( 'Vizdum.home', [
                     $scope.dashboard = $scope.dashboards[x];
                 }
             }
+            loadDashboard();
         };
 
-        // init dashboard
-        $scope.selectedDashboardId = '1';
-
         // I load the remote data from the server.
-        var loadRemoteData = function () {
-            // The friendService returns a promise.
+        var loadDashboardList = function () {
             var jsonObj = {
-                module: 'widgetsConfig',
-                param: ''
+                module: 'dashboard',
+                param: '',
+                method: 'getList'
             };
             HttpServices.get(jsonObj).then(
-                function (items) {
-                    console.log(items);
-                    applyRemoteData(items);
+                function (response) {
+                    $scope.dashboards = response.data;
+                    // init dashboard
+                    $scope.selectedDashboardId = $scope.dashboards[0].dashboard_id;
+                    loadDashboard();
                 }
             );
+        };
 
+        var loadDashboard = function () {
+            var jsonObj = {
+                module: 'dashboard',
+                method: 'get',
+                param: $scope.selectedDashboardId
+            };
+            HttpServices.get(jsonObj).then(
+                function (response) {
+                    $scope.dashboard.widgets = response.data;
+                    loadWidgets();
+                }
+            );
+        };
+
+        var loadWidgets = function () {
+            var jsonObj = {
+                module: 'widget',
+                param: ''
+            };
+
+            HttpServices.get(jsonObj).then(
+                function (items) {
+                    var widgetConfig = items.data;
+                    if(widgetConfig) {
+                        for(var x in widgetConfig) {
+                            var widget = _.find($scope.dashboard.widgets, function (widget) {
+                                return widget.id == widgetConfig[x].id;
+                            });
+                            if(widget) {
+                                widget.chartType = widgetConfig[x].chartType;
+                                console.log(widgetConfig[x]);
+                                widget.data = widgetConfig[x].data;
+                                widget.labels = widgetConfig[x].labels;
+                                widget.series = widgetConfig[x].series;
+                            }
+                        }
+                        widgetRefreshTimer();
+                    }
+                }
+            );
+        };
+
+        var widgetRefreshTimer = function () {
             // Starting timer for refreshing widget data
             var stop,
-                chunk = 2;
+                chunk = 2,
+                refreshOne = true;
             $scope.widgetRefresh = function() {
                 // Don't start a refresh if we are already refreshing
                 if ( angular.isDefined(stop) ) return;
@@ -268,7 +214,10 @@ angular.module( 'Vizdum.home', [
                     }
                     chunk+= 2;
                     console.log(idArray.join(','));
-                }, 15000);
+
+                    updateWidget(refreshOne);
+                    refreshOne = !refreshOne;
+                }, 120000);
             };
 
             $scope.stopRefresh = function() {
@@ -291,11 +240,39 @@ angular.module( 'Vizdum.home', [
             $scope.widgetRefresh();
         };
 
-        var applyRemoteData = function (items) {
-            $scope.dashboard.widgets = items.data;
+        var updateWidget = function (widgetIds) {
+            var jsonObj;
+            if(widgetIds) {
+                jsonObj = {
+                    module: 'refreshOne',
+                    param: ''
+                };
+            } else {
+                jsonObj = {
+                    module: 'refreshTwo',
+                    param: ''
+                };
+            }
+
+            HttpServices.get(jsonObj).then(
+                function (items) {
+                    var widgetConfig = items.data;
+                    if(widgetConfig) {
+                        for(var x in widgetConfig) {
+                            var widget = _.find($scope.dashboard.widgets, function (widget) {
+                                return widget.id == widgetConfig[x].id;
+                            });
+                            //widget = widgetConfig[x];
+                            widget.data = widgetConfig[x].data;
+                            widget.labels = widgetConfig[x].labels;
+                            widget.series = widgetConfig[x].series;
+                        }
+                    }
+                }
+            );
         };
 
-        loadRemoteData();
+        loadDashboardList();
 
         $scope.printJson = function () {
             console.log($scope.dashboard.widgets);
@@ -330,7 +307,6 @@ angular.module( 'Vizdum.home', [
                 }
             });
         };
-
     })
 
     .controller('WidgetSettingsCtrl', function WidgetSettingsCtrl($scope,$modal, widget) {
@@ -346,23 +322,27 @@ angular.module( 'Vizdum.home', [
             chartSubTypeSelected: widget.chartType
         };
 
-        $scope.sizeOptions = [{
-            id: '1',
-            name: '1'
-        }, {
-            id: '2',
-            name: '2'
-        }, {
-            id: '3',
-            name: '3'
-        }, {
-            id: '4',
-            name: '4'
-        }];
+        $scope.sizeOptions = [
+            {
+                id: '1',
+                name: '1'
+            },
+            {
+                id: '2',
+                name: '2'
+            },
+            {
+                id: '3',
+                name: '3'
+            },
+            {
+                id: '4',
+                name: '4'
+            }];
 
         switch (widget.chartType) {
             case "bar":
-                $scope.chartSubType = [ { id: 'bar', name: 'bar' }];
+                $scope.chartSubType = [ { id: 'bar', name: 'bar' }, { id: 'line', name: 'line' }, { id: 'radar', name: 'radar' }];
                 break;
             case "line":
                 $scope.chartSubType = [ { id: 'line', name: 'line' }];

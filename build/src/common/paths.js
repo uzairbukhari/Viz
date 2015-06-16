@@ -20,6 +20,19 @@ angular.module('paths', []).service('Paths', function () {
         },
         bar: {
             get: 'http://demo3670183.mockable.io/bar'
+        },
+        refreshOne: {
+            get: 'http://demo3670183.mockable.io/refreshOne'
+        },
+        refreshTwo: {
+            get: 'http://demo3670183.mockable.io/refreshTwo'
+        },
+        dashboard: {
+            getList: 'http://demo1140650.mockable.io/dashboard/get',
+            get: 'http://demo1140650.mockable.io/dashboard/get/:id'
+        },
+        widget: {
+            get: 'http://demo1140650.mockable.io/widget/get'
         }
     };
 

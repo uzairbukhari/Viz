@@ -328,7 +328,7 @@ angular.module("home/home.tpl.html", []).run(["$templateCache", function($templa
     "    <a class=\"pull-right btn btn-warning\" ng-click=\"clear()\"><i class=\"glyphicon glyphicon-trash\"></i> Clear</a>\n" +
     "    <a class=\"pull-right btn btn-primary\" ng-click=\"printJson()\"><i class=\"glyphicon\"></i> Get Json</a>\n" +
     "    <h1 style=\"display: inline-block; width: 200px;\">Dashboards</h1>\n" +
-    "    <select class=\"form-control\" style=\"width: 150px; margin-bottom: 20px; display:inline-block;\" ng-model=\"selectedDashboardId\" ng-options=\"d.id as d.name for d in dashboards | object2Array | orderBy:'id'\">\n" +
+    "    <select class=\"form-control\" style=\"width: 150px; margin-bottom: 20px; display:inline-block;\" ng-model=\"selectedDashboardId\" ng-options=\"d.dashboard_id as d.name for d in dashboards | object2Array | orderBy:'id'\">\n" +
     "    </select>\n" +
     "    <!--<div>\n" +
     "      <img src=\"images/loader.gif\">\n" +

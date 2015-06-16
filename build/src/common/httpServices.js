@@ -20,7 +20,7 @@
         // get data from the rest API
         function getDataRest(jsonObj) {
             console.log('in get call');
-            var url = getUrl(jsonObj.module, 'get');
+            var url = getUrl(jsonObj.module, jsonObj.method ? jsonObj.method : 'get');
 
             var request = $http({
                 method: "get",
