@@ -28,11 +28,18 @@ angular.module('paths', []).service('Paths', function () {
             get: 'http://demo3670183.mockable.io/refreshTwo'
         },
         dashboard: {
-            getList: 'http://demo1140650.mockable.io/dashboard/get',
-            get: 'http://demo1140650.mockable.io/dashboard/get/:id'
+            getList: 'http://api.vizdum.com/dashboards',
+            get: 'http://api.vizdum.com/dashboards/1'
+        },
+        dashboardData: {
+            get: 'http://api.vizdum.com/data/dashboard/1',
+            put: 'http://api.vizdum.com/dashboards/1'
         },
         widget: {
-            get: 'http://demo1140650.mockable.io/widget/get'
+            get: 'http://api.vizdum.com/dashboards/1/widgets/2',
+            delete: 'http://api.vizdum.com/data/widget/1',
+            set: 'http://api.vizdum.com/dashboards/1/widgets',
+            put: 'http://api.vizdum.com/dashboards/1/widgets/11'
         }
     };
 

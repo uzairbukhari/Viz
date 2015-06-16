@@ -5,7 +5,7 @@
     <a class="pull-right btn btn-warning" ng-click="clear()"><i class="glyphicon glyphicon-trash"></i> Clear</a>
     <a class="pull-right btn btn-primary" ng-click="printJson()"><i class="glyphicon"></i> Get Json</a>
     <h1 style="display: inline-block; width: 200px;">Dashboards</h1>
-    <select class="form-control" style="width: 150px; margin-bottom: 20px; display:inline-block;" ng-model="selectedDashboardId" ng-options="d.dashboard_id as d.name for d in dashboards | object2Array | orderBy:'id'">
+    <select class="form-control" style="width: 150px; margin-bottom: 20px; display:inline-block;" ng-model="selectedDashboardId" ng-options="d.id as d.name for d in dashboards | object2Array | orderBy:'id'">
     </select>
     <!--<div>
       <img src="images/loader.gif">
@@ -23,30 +23,30 @@
             </div>
           </div>
           <div class="box-content" id="{{widget.id}}">
-            {{widget.chartType}}
-            <div ng-if="widget.chartType == 'line'">
+            {{widget.widget_type}}
+            <div ng-if="widget.widget_type == 'line'">
               <canvas id="line" class="chart chart-line" data="widget.data"
                       labels="widget.labels" legend="true" series="widget.series"
                       click="onClick">
               </canvas>
             </div>
-            <div ng-if="widget.chartType == 'bar'">
+            <div ng-if="widget.widget_type == 'bar'">
               <canvas id="bar" class="chart chart-bar" data="widget.data"
                       labels="widget.labels"></canvas>
             </div>
-            <div ng-if="widget.chartType == 'doughnut'">
+            <div ng-if="widget.widget_type == 'doughnut'">
               <canvas id="doughnut" class="chart chart-doughnut" data="widget.data"
                       labels="widget.labels"></canvas>
             </div>
-            <div ng-if="widget.chartType == 'radar'">
+            <div ng-if="widget.widget_type == 'radar'">
               <canvas id="radar" class="chart chart-radar" data="widget.data"
                       labels="widget.labels"></canvas>
             </div>
-            <div ng-if="widget.chartType == 'pie'">
+            <div ng-if="widget.widget_type == 'pie'">
               <canvas id="pie" class="chart chart-pie" data="widget.data"
                       labels="widget.labels"></canvas>
             </div>
-            <div ng-if="widget.chartType == 'polar-area'">
+            <div ng-if="widget.widget_type == 'polar-area'">
               <canvas id="polar-area" class="chart chart-polar-area" data="widget.data"
                       labels="widget.labels"></canvas>
             </div>

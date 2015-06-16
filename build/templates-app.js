@@ -1,4 +1,4 @@
-angular.module('templates-app', ['about/about.tpl.html', 'home/create_widget.tpl.html', 'home/home.tpl.html', 'home/new_dashboard.tpl.html', 'home/widget_settings.tpl.html', 'test3/create_widget.tpl.html', 'test3/new_dashboard.tpl.html', 'test3/test3.tpl.html', 'test3/widget_settings.tpl.html']);
+angular.module('templates-app', ['about/about.tpl.html', 'home/create_widget.tpl.html', 'home/home.tpl.html', 'home/new_dashboard.tpl.html', 'home/widget_settings.tpl.html']);
 
 angular.module("about/about.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("about/about.tpl.html",
@@ -289,18 +289,18 @@ angular.module("home/create_widget.tpl.html", []).run(["$templateCache", functio
     "            <div class=\"row\">\n" +
     "                <div class=\"col-lg-6 col-md-6\">\n" +
     "                    <div class=\"form-group\" ng-class=\"{error: _form.sizeX.$error && _form.submitted}\">\n" +
-    "                        <label class=\"control-label col-lg-6 col-md-6\">Width</label>\n" +
+    "                        <label class=\"control-label col-lg-6 col-md-6\">Chart Type</label>\n" +
     "                        <div class=\"col-lg-6 col-md-6\">\n" +
     "                            <label>\n" +
-    "                                <input type=\"radio\" ng-model=\"form.chartType\" value=\"line\">\n" +
+    "                                <input type=\"radio\" ng-model=\"form.widget_type\" value=\"line\">\n" +
     "                                Line\n" +
     "                            </label><br/>\n" +
     "                            <label>\n" +
-    "                                <input type=\"radio\" ng-model=\"form.chartType\" value=\"bar\">\n" +
+    "                                <input type=\"radio\" ng-model=\"form.widget_type\" value=\"bar\">\n" +
     "                                Bar\n" +
     "                            </label><br/>\n" +
     "                            <label>\n" +
-    "                                <input type=\"radio\" ng-model=\"form.chartType\" value=\"pie\">\n" +
+    "                                <input type=\"radio\" ng-model=\"form.widget_type\" value=\"pie\">\n" +
     "                                Pie\n" +
     "                            </label><br/>\n" +
     "                        </div>\n" +
@@ -328,7 +328,7 @@ angular.module("home/home.tpl.html", []).run(["$templateCache", function($templa
     "    <a class=\"pull-right btn btn-warning\" ng-click=\"clear()\"><i class=\"glyphicon glyphicon-trash\"></i> Clear</a>\n" +
     "    <a class=\"pull-right btn btn-primary\" ng-click=\"printJson()\"><i class=\"glyphicon\"></i> Get Json</a>\n" +
     "    <h1 style=\"display: inline-block; width: 200px;\">Dashboards</h1>\n" +
-    "    <select class=\"form-control\" style=\"width: 150px; margin-bottom: 20px; display:inline-block;\" ng-model=\"selectedDashboardId\" ng-options=\"d.dashboard_id as d.name for d in dashboards | object2Array | orderBy:'id'\">\n" +
+    "    <select class=\"form-control\" style=\"width: 150px; margin-bottom: 20px; display:inline-block;\" ng-model=\"selectedDashboardId\" ng-options=\"d.id as d.name for d in dashboards | object2Array | orderBy:'id'\">\n" +
     "    </select>\n" +
     "    <!--<div>\n" +
     "      <img src=\"images/loader.gif\">\n" +
@@ -346,30 +346,30 @@ angular.module("home/home.tpl.html", []).run(["$templateCache", function($templa
     "            </div>\n" +
     "          </div>\n" +
     "          <div class=\"box-content\" id=\"{{widget.id}}\">\n" +
-    "            {{widget.chartType}}\n" +
-    "            <div ng-if=\"widget.chartType == 'line'\">\n" +
+    "            {{widget.widget_type}}\n" +
+    "            <div ng-if=\"widget.widget_type == 'line'\">\n" +
     "              <canvas id=\"line\" class=\"chart chart-line\" data=\"widget.data\"\n" +
     "                      labels=\"widget.labels\" legend=\"true\" series=\"widget.series\"\n" +
     "                      click=\"onClick\">\n" +
     "              </canvas>\n" +
     "            </div>\n" +
-    "            <div ng-if=\"widget.chartType == 'bar'\">\n" +
+    "            <div ng-if=\"widget.widget_type == 'bar'\">\n" +
     "              <canvas id=\"bar\" class=\"chart chart-bar\" data=\"widget.data\"\n" +
     "                      labels=\"widget.labels\"></canvas>\n" +
     "            </div>\n" +
-    "            <div ng-if=\"widget.chartType == 'doughnut'\">\n" +
+    "            <div ng-if=\"widget.widget_type == 'doughnut'\">\n" +
     "              <canvas id=\"doughnut\" class=\"chart chart-doughnut\" data=\"widget.data\"\n" +
     "                      labels=\"widget.labels\"></canvas>\n" +
     "            </div>\n" +
-    "            <div ng-if=\"widget.chartType == 'radar'\">\n" +
+    "            <div ng-if=\"widget.widget_type == 'radar'\">\n" +
     "              <canvas id=\"radar\" class=\"chart chart-radar\" data=\"widget.data\"\n" +
     "                      labels=\"widget.labels\"></canvas>\n" +
     "            </div>\n" +
-    "            <div ng-if=\"widget.chartType == 'pie'\">\n" +
+    "            <div ng-if=\"widget.widget_type == 'pie'\">\n" +
     "              <canvas id=\"pie\" class=\"chart chart-pie\" data=\"widget.data\"\n" +
     "                      labels=\"widget.labels\"></canvas>\n" +
     "            </div>\n" +
-    "            <div ng-if=\"widget.chartType == 'polar-area'\">\n" +
+    "            <div ng-if=\"widget.widget_type == 'polar-area'\">\n" +
     "              <canvas id=\"polar-area\" class=\"chart chart-polar-area\" data=\"widget.data\"\n" +
     "                      labels=\"widget.labels\"></canvas>\n" +
     "            </div>\n" +
@@ -412,224 +412,6 @@ angular.module("home/new_dashboard.tpl.html", []).run(["$templateCache", functio
 
 angular.module("home/widget_settings.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("home/widget_settings.tpl.html",
-    "<div>\n" +
-    "    <form name=\"_form\" class=\"form-horizontal\" ng-submit=\"submit(_form)\">\n" +
-    "        <div class=\"modal-header\">\n" +
-    "            <button type=\"button\" class=\"close\" ng-click=\"dismiss()\" aria-hidden=\"true\">&times;</button>\n" +
-    "            <h3>Widget Settings</h3>\n" +
-    "        </div>\n" +
-    "\n" +
-    "        <div class=\"modal-body\">\n" +
-    "            <div class=\"form-group\" ng-class=\"{error: _form.name.$error && _form.submitted}\">\n" +
-    "                <label class=\"control-label col-lg-3 col-md-3\">Name</label>\n" +
-    "                <div class=\"col-lg-9 col-md-9\">\n" +
-    "                    <input name=\"name\" type=\"text\" ng-model=\"form.name\" class=\"form-control\" />\n" +
-    "                </div>\n" +
-    "            </div>\n" +
-    "            <div class=\"row\">\n" +
-    "                <div class=\"col-lg-6 col-md-6\">\n" +
-    "                    <div class=\"form-group\" ng-class=\"{error: _form.sizeX.$error && _form.submitted}\">\n" +
-    "                        <label class=\"control-label col-lg-6 col-md-6\">Width</label>\n" +
-    "                        <div class=\"col-lg-6 col-md-6\">\n" +
-    "                            <input name=\"sizeX\" ng-model=\"form.sizeX\" class=\"form-control\" />\n" +
-    "                        </div>\n" +
-    "                    </div>\n" +
-    "                </div>\n" +
-    "                <div class=\"col-lg-6 col-md-6\">\n" +
-    "                    <div class=\"form-group\">\n" +
-    "                        <label class=\"control-label col-lg-6 col-md-6\">Height</label>\n" +
-    "                        <div class=\"col-lg-6 col-md-6\">\n" +
-    "                            <input name=\"sizeY\" ng-model=\"form.sizeY\" class=\"form-control\" />\n" +
-    "                        </div>\n" +
-    "                    </div>\n" +
-    "                </div>\n" +
-    "            </div>\n" +
-    "            <div class=\"row\">\n" +
-    "                <div class=\"col-lg-6 col-md-6\">\n" +
-    "                    <div class=\"form-group\" ng-class=\"{error: _form.sizeX.$error && _form.submitted}\">\n" +
-    "                        <label class=\"control-label col-lg-6 col-md-6\">Column</label>\n" +
-    "                        <div class=\"col-lg-6 col-md-6\">\n" +
-    "                            <input name=\"col\" ng-model=\"form.col\" class=\"form-control\" />\n" +
-    "                        </div>\n" +
-    "                    </div>\n" +
-    "                </div>\n" +
-    "                <div class=\"col-lg-6 col-md-6\">\n" +
-    "                    <div class=\"form-group\">\n" +
-    "                        <label class=\"control-label col-lg-6 col-md-6\">Row</label>\n" +
-    "                        <div class=\"col-lg-6 col-md-6\">\n" +
-    "                            <input name=\"row\" ng-model=\"form.row\" class=\"form-control\" />\n" +
-    "                        </div>\n" +
-    "                    </div>\n" +
-    "                </div>\n" +
-    "            </div>\n" +
-    "            <div class=\"row\">\n" +
-    "                <div class=\"col-lg-6 col-md-6\">\n" +
-    "                    <div class=\"form-group\">\n" +
-    "                        <label class=\"control-label col-lg-6 col-md-6\">Chart Type</label>\n" +
-    "                        <div class=\"col-lg-6 col-md-6\">\n" +
-    "                            <select class=\"form-control\" style=\"width: 150px; margin-bottom: 20px; display:inline-block;\" ng-model=\"form.chartSubTypeSelected\" ng-options=\"d.id as d.name for d in chartSubType | object2Array | orderBy:'id'\">\n" +
-    "                            </select>\n" +
-    "                        </div>\n" +
-    "                    </div>\n" +
-    "                </div>\n" +
-    "            </div>\n" +
-    "        </div>\n" +
-    "\n" +
-    "        <div class=\"modal-footer\">\n" +
-    "            <a ng-click=\"remove()\" class=\"btn btn-danger pull-left\" tabindex=\"-1\"><i class=\"glyphicon glyphicon-trash\"></i>Delete</a>\n" +
-    "            <a ng-click=\"dismiss()\" class=\"btn btn-default\" tabindex=\"-1\"><i class=\"glyphicon glyphicon-remove\"></i>Cancel</a>\n" +
-    "            <button type=\"submit\" class=\"btn btn-primary btn-lg\"><i class=\"glyphicon glyphicon-ok\"></i>Save</button>\n" +
-    "        </div>\n" +
-    "    </form>\n" +
-    "</div>\n" +
-    "");
-}]);
-
-angular.module("test3/create_widget.tpl.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("test3/create_widget.tpl.html",
-    "<div>\n" +
-    "    <form name=\"_form\" class=\"form-horizontal\" ng-submit=\"submit(_form)\">\n" +
-    "        <div class=\"modal-header\">\n" +
-    "            <button type=\"button\" class=\"close\" ng-click=\"dismiss()\" aria-hidden=\"true\">&times;</button>\n" +
-    "            <h3>Add new widget</h3>\n" +
-    "        </div>\n" +
-    "\n" +
-    "        <div class=\"modal-body\">\n" +
-    "            <div class=\"form-group\" ng-class=\"{error: _form.name.$error && _form.submitted}\">\n" +
-    "                <label class=\"control-label col-lg-3 col-md-3\">Name</label>\n" +
-    "                <div class=\"col-lg-9 col-md-9\">\n" +
-    "                    <input name=\"name\" type=\"text\" ng-model=\"form.name\" class=\"form-control\" />\n" +
-    "                </div>\n" +
-    "            </div>\n" +
-    "            <div class=\"row\">\n" +
-    "                <div class=\"col-lg-6 col-md-6\">\n" +
-    "                    <div class=\"form-group\" ng-class=\"{error: _form.sizeX.$error && _form.submitted}\">\n" +
-    "                        <label class=\"control-label col-lg-6 col-md-6\">Width</label>\n" +
-    "                        <div class=\"col-lg-6 col-md-6\">\n" +
-    "                            <label>\n" +
-    "                                <input type=\"radio\" ng-model=\"form.chartType\" value=\"line\">\n" +
-    "                                Line\n" +
-    "                            </label><br/>\n" +
-    "                            <label>\n" +
-    "                                <input type=\"radio\" ng-model=\"form.chartType\" value=\"bar\">\n" +
-    "                                Bar\n" +
-    "                            </label><br/>\n" +
-    "                            <label>\n" +
-    "                                <input type=\"radio\" ng-model=\"form.chartType\" value=\"pie\">\n" +
-    "                                Pie\n" +
-    "                            </label><br/>\n" +
-    "                        </div>\n" +
-    "                    </div>\n" +
-    "                </div>\n" +
-    "            </div>\n" +
-    "        </div>\n" +
-    "\n" +
-    "        <div class=\"modal-footer\">\n" +
-    "            <a ng-click=\"remove()\" class=\"btn btn-danger pull-left\" tabindex=\"-1\"><i class=\"glyphicon glyphicon-trash\"></i>Delete</a>\n" +
-    "            <a ng-click=\"dismiss()\" class=\"btn btn-default\" tabindex=\"-1\"><i class=\"glyphicon glyphicon-remove\"></i>Cancel</a>\n" +
-    "            <button type=\"submit\" class=\"btn btn-primary btn-lg\"><i class=\"glyphicon glyphicon-ok\"></i>Save</button>\n" +
-    "        </div>\n" +
-    "    </form>\n" +
-    "</div>\n" +
-    "");
-}]);
-
-angular.module("test3/new_dashboard.tpl.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("test3/new_dashboard.tpl.html",
-    "<div>\n" +
-    "    <form name=\"_form\" class=\"form-horizontal\" ng-submit=\"submit(_form)\">\n" +
-    "        <div class=\"modal-header\">\n" +
-    "            <button type=\"button\" class=\"close\" ng-click=\"dismiss()\" aria-hidden=\"true\">&times;</button>\n" +
-    "            <h3>Add new dashboard</h3>\n" +
-    "        </div>\n" +
-    "\n" +
-    "        <div class=\"modal-body\">\n" +
-    "            <div class=\"form-group\" ng-class=\"{error: _form.name.$error && _form.submitted}\">\n" +
-    "                <label class=\"control-label col-lg-3 col-md-3\">Name</label>\n" +
-    "                <div class=\"col-lg-9 col-md-9\">\n" +
-    "                    <input name=\"name\" type=\"text\" ng-model=\"form.name\" class=\"form-control\" />\n" +
-    "                </div>\n" +
-    "            </div>\n" +
-    "        </div>\n" +
-    "\n" +
-    "        <div class=\"modal-footer\">\n" +
-    "            <a ng-click=\"dismiss()\" class=\"btn btn-default\" tabindex=\"-1\"><i class=\"glyphicon glyphicon-remove\"></i>Cancel</a>\n" +
-    "            <button type=\"submit\" class=\"btn btn-primary btn-lg\"><i class=\"glyphicon glyphicon-ok\"></i>Save</button>\n" +
-    "        </div>\n" +
-    "    </form>\n" +
-    "</div>\n" +
-    "");
-}]);
-
-angular.module("test3/test3.tpl.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("test3/test3.tpl.html",
-    "<div class=\"row\">\n" +
-    "  <h1 class=\"page-header\">\n" +
-    "    Vizdum!!....\n" +
-    "  </h1>\n" +
-    "  <div class=\"page-header\">\n" +
-    "    <a class=\"pull-right btn btn-primary\" ng-click=\"addDashboard()\"><i class=\"glyphicon glyphicon-plus\"></i> Add Dashboard</a>\n" +
-    "    <a class=\"pull-right btn btn-primary\" ng-click=\"addWidget()\"><i class=\"glyphicon glyphicon-plus\"></i> Add Widget</a>\n" +
-    "    <a class=\"pull-right btn btn-warning\" ng-click=\"clear()\"><i class=\"glyphicon glyphicon-trash\"></i> Clear</a>\n" +
-    "    <a class=\"pull-right btn btn-primary\" ng-click=\"printJson()\"><i class=\"glyphicon\"></i> Get Json</a>\n" +
-    "    <h1 style=\"display: inline-block; width: 200px;\">Dashboards</h1>\n" +
-    "    <select class=\"form-control\" style=\"width: 150px; margin-bottom: 20px; display:inline-block;\" ng-model=\"selectedDashboardId\" ng-options=\"d.id as d.name for d in dashboards | object2Array | orderBy:'id'\">\n" +
-    "    </select>\n" +
-    "    <!--<div>\n" +
-    "      <img src=\"images/loader.gif\">\n" +
-    "    </div>-->\n" +
-    "  </div>\n" +
-    "  <div gridster=\"gridsterOptions\">\n" +
-    "    <ul>\n" +
-    "      <li gridster-item=\"widget\" ng-repeat=\"widget in dashboard.widgets\">\n" +
-    "        <div class=\"box\" ng-controller=\"CustomWidgetCtrl\">\n" +
-    "          <div class=\"box-header\">\n" +
-    "            <h3>{{ widget.name }}</h3>\n" +
-    "            <div class=\"box-header-btns pull-right\">\n" +
-    "              <a title=\"settings\" ng-click=\"openSettings(widget)\"><img class=\"icon_setting_class\" src=\"./assets/images/setting_icon.png\"></a>\n" +
-    "              <a title=\"Remove widget\" ng-click=\"remove(widget)\"><img class=\"icon_remove_class\" src=\"./assets/images/remove.png\"></a>\n" +
-    "            </div>\n" +
-    "          </div>\n" +
-    "          <div class=\"box-content\" id=\"{{widget.id}}\">\n" +
-    "            {{widget.chartType}}\n" +
-    "            <div ng-if=\"widget.chartType == 'line'\">\n" +
-    "              <canvas id=\"line\" class=\"chart chart-line\" data=\"widget.data\"\n" +
-    "                      labels=\"widget.labels\" legend=\"true\" series=\"widget.series\"\n" +
-    "                      click=\"onClick\">\n" +
-    "              </canvas>\n" +
-    "            </div>\n" +
-    "            <div ng-if=\"widget.chartType == 'bar'\">\n" +
-    "              <canvas id=\"bar\" class=\"chart chart-bar\" data=\"widget.data\"\n" +
-    "                      labels=\"widget.labels\"></canvas>\n" +
-    "            </div>\n" +
-    "            <div ng-if=\"widget.chartType == 'doughnut'\">\n" +
-    "              <canvas id=\"doughnut\" class=\"chart chart-doughnut\" data=\"widget.data\"\n" +
-    "                      labels=\"widget.labels\"></canvas>\n" +
-    "            </div>\n" +
-    "            <div ng-if=\"widget.chartType == 'radar'\">\n" +
-    "              <canvas id=\"radar\" class=\"chart chart-radar\" data=\"widget.data\"\n" +
-    "                      labels=\"widget.labels\"></canvas>\n" +
-    "            </div>\n" +
-    "            <div ng-if=\"widget.chartType == 'pie'\">\n" +
-    "              <canvas id=\"pie\" class=\"chart chart-pie\" data=\"widget.data\"\n" +
-    "                       labels=\"widget.labels\"></canvas>\n" +
-    "            </div>\n" +
-    "            <div ng-if=\"widget.chartType == 'polar-area'\">\n" +
-    "              <canvas id=\"polar-area\" class=\"chart chart-polar-area\" data=\"widget.data\"\n" +
-    "                      labels=\"widget.labels\"></canvas>\n" +
-    "            </div>\n" +
-    "          </div>\n" +
-    "        </div>\n" +
-    "      </li>\n" +
-    "    </ul>\n" +
-    "  </div>\n" +
-    "</div>\n" +
-    "\n" +
-    "");
-}]);
-
-angular.module("test3/widget_settings.tpl.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("test3/widget_settings.tpl.html",
     "<div>\n" +
     "    <form name=\"_form\" class=\"form-horizontal\" ng-submit=\"submit(_form)\">\n" +
     "        <div class=\"modal-header\">\n" +

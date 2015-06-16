@@ -4,7 +4,6 @@ var app = angular.module( 'Vizdum', [
     'gridster',
     'Vizdum.home',
     'Vizdum.about',
-    'Vizdum.test3',
     'ui.router'
 ])
 
