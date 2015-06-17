@@ -3,45 +3,25 @@
  */
 angular.module('paths', []).service('Paths', function () {
     // Return public API.
-    var restPaths = {
-        todo: {
-            get: 'http://demo3670183.mockable.io/get',
-            set: 'http://demo3670183.mockable.io/set'
-        },
-        widgetsConfig: {
-            get: 'http://demo3670183.mockable.io/dashboard',
-            set: 'http://demo3670183.mockable.io/set'
-        },
-        pie: {
-            get: 'http://demo3670183.mockable.io/pie'
-        },
-        line: {
-            get: 'http://demo3670183.mockable.io/line'
-        },
-        bar: {
-            get: 'http://demo3670183.mockable.io/bar'
-        },
-        refreshOne: {
-            get: 'http://demo3670183.mockable.io/refreshOne'
-        },
-        refreshTwo: {
-            get: 'http://demo3670183.mockable.io/refreshTwo'
-        },
-        dashboard: {
-            getList: 'http://api.vizdum.com/dashboards',
-            get: 'http://api.vizdum.com/dashboards/'
-        },
-        dashboardData: {
-            get: 'http://api.vizdum.com/data/dashboard/',
-            put: 'http://api.vizdum.com/dashboards/1'
-        },
-        widget: {
-            get: 'http://api.vizdum.com/dashboards/1/widgets/2',
-            delete: 'http://api.vizdum.com/data/widget/',
-            set: 'http://api.vizdum.com/dashboards/1/widgets',
-            put: 'http://api.vizdum.com/dashboards/1/widgets/11'
-        }
-    };
+    var baseUrl = 'http://api.vizdum.com/',
+                  // 'http://10.164.25.42:8088/Vizdum_api/public/',
+        restPaths = {
+            dashboard: {
+                getList: 'dashboards',
+                get: 'dashboards/',
+                set: 'dashboards'
+            },
+            dashboardData: {
+                get: 'data/dashboard/',
+                put: 'dashboards/'
+            },
+            widget: {
+                get: 'data/widget/',        // {dashboard_id}/widgets/{widget_id}
+                delete: 'dashboards/',               // {dashboard_id}/widgets/{widget_id}
+                set: 'dashboards/',                   // {dashboard_id}/widgets
+                put: 'dashboards/1/widgets/11'        // {dashboard_id}/widgets/{widget_id}
+            }
+        };
 
     return({
         getApiPath: getRestApiPath
@@ -50,7 +30,7 @@ angular.module('paths', []).service('Paths', function () {
     function getRestApiPath(module, action) {
         var moduleKey = restPaths[module];
         if(moduleKey && moduleKey[action]) {
-            return moduleKey[action];
+            return baseUrl + moduleKey[action];
         }
         else
             return undefined;

@@ -73,8 +73,8 @@ angular.module( 'Vizdum.home', [
                 resize: function (event, $element, widget) {
                 }, // optional callback fired when item is resized,
                 stop: function (event, $element, widget) {
-                    console.log('resizing complete');
                     window.dispatchEvent(new Event('resize'));
+                    $scope.saveDashboardData();
                 } // optional callback fired when item is finished resizing
             }
         };
@@ -153,7 +153,7 @@ angular.module( 'Vizdum.home', [
             };
             HttpServices.get(jsonObj).then(
                 function (response) {
-                    console.log(response);
+                    console.log($scope.dashboard.widgets);
                     $scope.dashboard.widgets = response.widgets;
                     loadDashboardData();
                 }
@@ -207,7 +207,7 @@ angular.module( 'Vizdum.home', [
 
             jsonObj = {
                 module: 'dashboardData',
-                param: '',
+                param: $scope.selectedDashboardId,
                 data: {
                     "id": $scope.selectedDashboardId,
                     "widgets": widgetsConf
@@ -318,8 +318,6 @@ angular.module( 'Vizdum.home', [
 
             HttpServices.set(jsonObj).then(function (msg) {
                 console.log(msg);
-                $scope.todos.push(jsonObj.data);
-                $scope.todoText = " ";
             });
         };
     })
@@ -329,7 +327,7 @@ angular.module( 'Vizdum.home', [
             if(window.confirm('This will remove this widget. Are you sure?')) {
                 var jsonObj = {
                     module: 'widget',
-                    param: widget.id
+                    param: $scope.selectedDashboardId + '/widgets/' + widget.id
                 };
 
                 HttpServices.delete(jsonObj).then(function () {
@@ -439,6 +437,39 @@ angular.module( 'Vizdum.home', [
         };
 
         $scope.submit = function () {
+            var widgetConfig = {
+                    name: $scope.form.name,
+                    sizeX: 10,
+                    sizeY: 10,
+                    widget_type: $scope.form.widget_type,
+                    dashboard_id: $scope.selectedDashboardId,
+                    col: 0,
+                    row: 0
+                },
+                jsonObj = {
+                    module: 'widget',
+                    param:  $scope.selectedDashboardId + '/widgets',
+                    data: widgetConfig
+                };
+
+            HttpServices.set(jsonObj).then(function (resp) {
+                var getWidgetDataObj = {
+                    module: 'widget',
+                    param: resp.id
+                };
+                HttpServices.get(getWidgetDataObj).then(function (widgetData) {
+                    widgetConfig.id = resp.id;
+                    widgetConfig.data = widgetData.data;
+                    widgetConfig.labels = widgetData.labels;
+                    widgetConfig.series = widgetData.series;
+
+                    $scope.dashboard.widgets.push(widgetConfig);
+                    $scope.saveDashboardData();
+                    $scope.modalCreateWidgetInstance.close();
+                });
+            });
+
+
             var newDashboardId = $scope.form.name + "_" + Math.floor((Math.random() * 100) + 1);
             dashboards.push({
                 "id": newDashboardId,
@@ -469,28 +500,34 @@ angular.module( 'Vizdum.home', [
         $scope.submit = function () {
             var widgetConfig = {
                     name: $scope.form.name,
-                    sizeX: 5,
-                    sizeY: 5,
+                    sizeX: 10,
+                    sizeY: 10,
                     widget_type: $scope.form.widget_type,
-                    dashboard_id: "1",
-                    col: "0",
-                    row: "0"
+                    dashboard_id: $scope.selectedDashboardId,
+                    col: 0,
+                    row: 0
                 },
                 jsonObj = {
                     module: 'widget',
-                    param: '',
+                    param:  $scope.selectedDashboardId + '/widgets',
                     data: widgetConfig
                 };
 
-            console.log(widgetConfig);
             HttpServices.set(jsonObj).then(function (resp) {
-                console.log(resp);
-                widgetConfig.id = resp.id;
-                $scope.dashboard.widgets.push(widgetConfig);
+                var getWidgetDataObj = {
+                    module: 'widget',
+                    param: resp.id
+                };
+                HttpServices.get(getWidgetDataObj).then(function (widgetData) {
+                    widgetConfig.id = resp.id;
+                    widgetConfig.data = widgetData.data;
+                    widgetConfig.labels = widgetData.labels;
+                    widgetConfig.series = widgetData.series;
 
-                $scope.saveDashboardData();
-                //angular.extend(widget, $scope.form);
-                $scope.modalCreateWidgetInstance.close();
+                    $scope.dashboard.widgets.push(widgetConfig);
+                    $scope.saveDashboardData();
+                    $scope.modalCreateWidgetInstance.close();
+                });
             });
         };
 

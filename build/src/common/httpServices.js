@@ -37,7 +37,7 @@
                     'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT',
                     'Content-Type': 'application/json',
                     'Accept': 'application/json',
-                    "X-Authorization": "eyJpdiI6ImVyY1IyczEwd0RtelZwXC93XC92Rk1kZz09IiwidmFsdWUiOiJBckFCQ1NpbjhkYmxKSHdpbm9aT0wyZHVnSFdOaW1helcza1BBMEU5eUkwamxcL3J2eGZicFgrZE9tXC9kUERSd01CNUxFd2grcVBzXC9qM3FGYjBEZE1RV2JjRzU1bTd2V2h6SlRaZFNId01GdUZIZjRsWGt6ZkVTcXJTZ0V1V0xJQnRKbEFwNVhcL1Z6S2pFOG5pTXpxY3hLRG9McU95cXVlVDBza2FXaFFTSTZxbVhzUzlnb1ExaE5Hc3ZGeW0wdWxwM1dac2VNYWJBT0RuQ2lxR012Wml6b01vc3d0S2hlS05yTm5vRnNGRjZQUlphZVlTUjIzM3RWK2JUN29yV3VuZmV3RndVSFhRT0p6QlwvUzh1cDZ2QmRpZHE5enFJRWtqT2RPbGJWVnZYWTZnd1BwaTFGVUxxbmhxbTNYRnVKQ25iVXNscTZGZzU1b0tyNmpqbmp4M0c2ZWw3S1pKWWNpWEZWaVdGVG8xcW82aGVGdlBHWU56aUpLSkpHbFpjbk9iYU1PdnNTWm9TWFZRdHNSdm5zRnVobUIrcFFDNFhSaXcreklaVU1PQ3NZZlwvTlRHUVE1TEFRYStwajNQK3ZaMGMyIiwibWFjIjoiOWM4YjZhOGVlZjdjYzllNDg5MGRmYzUxYmUwYjFjYWIzYTBjNDVkMDg3ZGEwZDA1MjU0ZWIyN2MxMWE5ZWExOCJ9"
+                    "X-Authorization": "eyJpdiI6Inc3K2tPaUV1bCs0OE9SejA5amFYVXc9PSIsInZhbHVlIjoiSDFJV3k5WDk3V0dEUURZcnhUcWJYcmNKSnlNYTZ0WG1pK2E1R3NDSjNwZHNNUHkxYjg1d0ZKWWR1cGo4SFFnUkc3SEUzaE1xUjY1XC82NTlRaFAwSE5MVkdrRnNpTExGeDhTV3hYYXkxTWJBeHVSa3Z1ZVIweDBEUmtrdnNXcGlwTHU1VkdNM1c0YVQybmRMbVM5ZkZVOXQrXC9yVVRCdDlPK1lFYkZJY2NHTHRTY0RqOHJwcTdSNjQrTWQ1eHZ3TzhkWW0yUHl0RmlEczlkQlFqc1Y1YlNpc0ozSXpaUURYWm9sUmpaWk1jVEhObU5mVU5FSFwvSUp6Wm9nTHo2cTh1dE1FR2VaM2JVNVd1TzJsMEtkS1JwMnhNMnV4WXRcL2VTSVpHUHdrTlZLUnZ5TjRSY1hVTDRjTERwaUdob1B3anNOTnNkMWQ2d3JZSzhOQ3hWaW1cL2JwZE9TWkYyWFJKOEtQenY5UUZWbUhtZzhoQXpZcElOXC8ydlpHXC9Ra09OUUpINVwvUmlnMGN4MzA4aFQ0OUlhXC9lTzlQNXdHcHNRWklMYXRaWFkxR25oZlFKRWdlYTRjYzlcLzJWS0duUlNGUWhKUTciLCJtYWMiOiI5YTk4NTZkM2E5NjFlZWVjMGI0MjJiNDY0MzljMGU5NjkyZjM0MmIyNTY0YzNjY2I4M2FhNTljNWFlYzRmMDk2In0="
                 }
             });
 
@@ -47,6 +47,10 @@
         // set data to the Rest API
         function setDataRest( jsonObj ) {
             var url = getUrl(jsonObj.module, 'set');
+
+            if(jsonObj.param) {
+                url += jsonObj.param;
+            }
 
             var request = $http({
                 method: "post",
@@ -60,7 +64,7 @@
                     'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT',
                     'Content-Type': 'application/json',
                     'Accept': 'application/json',
-                    "X-Authorization": "eyJpdiI6ImVyY1IyczEwd0RtelZwXC93XC92Rk1kZz09IiwidmFsdWUiOiJBckFCQ1NpbjhkYmxKSHdpbm9aT0wyZHVnSFdOaW1helcza1BBMEU5eUkwamxcL3J2eGZicFgrZE9tXC9kUERSd01CNUxFd2grcVBzXC9qM3FGYjBEZE1RV2JjRzU1bTd2V2h6SlRaZFNId01GdUZIZjRsWGt6ZkVTcXJTZ0V1V0xJQnRKbEFwNVhcL1Z6S2pFOG5pTXpxY3hLRG9McU95cXVlVDBza2FXaFFTSTZxbVhzUzlnb1ExaE5Hc3ZGeW0wdWxwM1dac2VNYWJBT0RuQ2lxR012Wml6b01vc3d0S2hlS05yTm5vRnNGRjZQUlphZVlTUjIzM3RWK2JUN29yV3VuZmV3RndVSFhRT0p6QlwvUzh1cDZ2QmRpZHE5enFJRWtqT2RPbGJWVnZYWTZnd1BwaTFGVUxxbmhxbTNYRnVKQ25iVXNscTZGZzU1b0tyNmpqbmp4M0c2ZWw3S1pKWWNpWEZWaVdGVG8xcW82aGVGdlBHWU56aUpLSkpHbFpjbk9iYU1PdnNTWm9TWFZRdHNSdm5zRnVobUIrcFFDNFhSaXcreklaVU1PQ3NZZlwvTlRHUVE1TEFRYStwajNQK3ZaMGMyIiwibWFjIjoiOWM4YjZhOGVlZjdjYzllNDg5MGRmYzUxYmUwYjFjYWIzYTBjNDVkMDg3ZGEwZDA1MjU0ZWIyN2MxMWE5ZWExOCJ9"
+                    "X-Authorization": "eyJpdiI6Inc3K2tPaUV1bCs0OE9SejA5amFYVXc9PSIsInZhbHVlIjoiSDFJV3k5WDk3V0dEUURZcnhUcWJYcmNKSnlNYTZ0WG1pK2E1R3NDSjNwZHNNUHkxYjg1d0ZKWWR1cGo4SFFnUkc3SEUzaE1xUjY1XC82NTlRaFAwSE5MVkdrRnNpTExGeDhTV3hYYXkxTWJBeHVSa3Z1ZVIweDBEUmtrdnNXcGlwTHU1VkdNM1c0YVQybmRMbVM5ZkZVOXQrXC9yVVRCdDlPK1lFYkZJY2NHTHRTY0RqOHJwcTdSNjQrTWQ1eHZ3TzhkWW0yUHl0RmlEczlkQlFqc1Y1YlNpc0ozSXpaUURYWm9sUmpaWk1jVEhObU5mVU5FSFwvSUp6Wm9nTHo2cTh1dE1FR2VaM2JVNVd1TzJsMEtkS1JwMnhNMnV4WXRcL2VTSVpHUHdrTlZLUnZ5TjRSY1hVTDRjTERwaUdob1B3anNOTnNkMWQ2d3JZSzhOQ3hWaW1cL2JwZE9TWkYyWFJKOEtQenY5UUZWbUhtZzhoQXpZcElOXC8ydlpHXC9Ra09OUUpINVwvUmlnMGN4MzA4aFQ0OUlhXC9lTzlQNXdHcHNRWklMYXRaWFkxR25oZlFKRWdlYTRjYzlcLzJWS0duUlNGUWhKUTciLCJtYWMiOiI5YTk4NTZkM2E5NjFlZWVjMGI0MjJiNDY0MzljMGU5NjkyZjM0MmIyNTY0YzNjY2I4M2FhNTljNWFlYzRmMDk2In0="
                 }
             });
 
@@ -70,6 +74,9 @@
         // update data to the Rest API
         function updateDataRest( jsonObj ) {
             var url = getUrl(jsonObj.module, 'put');
+            if(jsonObj.param) {
+                url += jsonObj.param;
+            }
 
             var request = $http({
                 method: "put",
@@ -83,7 +90,7 @@
                     'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT',
                     'Content-Type': 'application/json',
                     'Accept': 'application/json',
-                    "X-Authorization": "eyJpdiI6ImVyY1IyczEwd0RtelZwXC93XC92Rk1kZz09IiwidmFsdWUiOiJBckFCQ1NpbjhkYmxKSHdpbm9aT0wyZHVnSFdOaW1helcza1BBMEU5eUkwamxcL3J2eGZicFgrZE9tXC9kUERSd01CNUxFd2grcVBzXC9qM3FGYjBEZE1RV2JjRzU1bTd2V2h6SlRaZFNId01GdUZIZjRsWGt6ZkVTcXJTZ0V1V0xJQnRKbEFwNVhcL1Z6S2pFOG5pTXpxY3hLRG9McU95cXVlVDBza2FXaFFTSTZxbVhzUzlnb1ExaE5Hc3ZGeW0wdWxwM1dac2VNYWJBT0RuQ2lxR012Wml6b01vc3d0S2hlS05yTm5vRnNGRjZQUlphZVlTUjIzM3RWK2JUN29yV3VuZmV3RndVSFhRT0p6QlwvUzh1cDZ2QmRpZHE5enFJRWtqT2RPbGJWVnZYWTZnd1BwaTFGVUxxbmhxbTNYRnVKQ25iVXNscTZGZzU1b0tyNmpqbmp4M0c2ZWw3S1pKWWNpWEZWaVdGVG8xcW82aGVGdlBHWU56aUpLSkpHbFpjbk9iYU1PdnNTWm9TWFZRdHNSdm5zRnVobUIrcFFDNFhSaXcreklaVU1PQ3NZZlwvTlRHUVE1TEFRYStwajNQK3ZaMGMyIiwibWFjIjoiOWM4YjZhOGVlZjdjYzllNDg5MGRmYzUxYmUwYjFjYWIzYTBjNDVkMDg3ZGEwZDA1MjU0ZWIyN2MxMWE5ZWExOCJ9"
+                    "X-Authorization": "eyJpdiI6Inc3K2tPaUV1bCs0OE9SejA5amFYVXc9PSIsInZhbHVlIjoiSDFJV3k5WDk3V0dEUURZcnhUcWJYcmNKSnlNYTZ0WG1pK2E1R3NDSjNwZHNNUHkxYjg1d0ZKWWR1cGo4SFFnUkc3SEUzaE1xUjY1XC82NTlRaFAwSE5MVkdrRnNpTExGeDhTV3hYYXkxTWJBeHVSa3Z1ZVIweDBEUmtrdnNXcGlwTHU1VkdNM1c0YVQybmRMbVM5ZkZVOXQrXC9yVVRCdDlPK1lFYkZJY2NHTHRTY0RqOHJwcTdSNjQrTWQ1eHZ3TzhkWW0yUHl0RmlEczlkQlFqc1Y1YlNpc0ozSXpaUURYWm9sUmpaWk1jVEhObU5mVU5FSFwvSUp6Wm9nTHo2cTh1dE1FR2VaM2JVNVd1TzJsMEtkS1JwMnhNMnV4WXRcL2VTSVpHUHdrTlZLUnZ5TjRSY1hVTDRjTERwaUdob1B3anNOTnNkMWQ2d3JZSzhOQ3hWaW1cL2JwZE9TWkYyWFJKOEtQenY5UUZWbUhtZzhoQXpZcElOXC8ydlpHXC9Ra09OUUpINVwvUmlnMGN4MzA4aFQ0OUlhXC9lTzlQNXdHcHNRWklMYXRaWFkxR25oZlFKRWdlYTRjYzlcLzJWS0duUlNGUWhKUTciLCJtYWMiOiI5YTk4NTZkM2E5NjFlZWVjMGI0MjJiNDY0MzljMGU5NjkyZjM0MmIyNTY0YzNjY2I4M2FhNTljNWFlYzRmMDk2In0="
                 }
             });
 
@@ -92,7 +99,10 @@
 
         // Remove data from the Rest API
         function removeDataRest( jsonObj ) {
-            var url = getUrl(jsonObj.module, 'delete') + jsonObj.param;
+            var url = getUrl(jsonObj.module, 'delete');
+            if(jsonObj.param) {
+                url += jsonObj.param;
+            }
 
             var request = $http({
                 method: "DELETE",
@@ -105,7 +115,7 @@
                     'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT, DELETE',
                     'Content-Type': 'application/json',
                     'Accept': 'application/json',
-                    "X-Authorization": "eyJpdiI6ImVyY1IyczEwd0RtelZwXC93XC92Rk1kZz09IiwidmFsdWUiOiJBckFCQ1NpbjhkYmxKSHdpbm9aT0wyZHVnSFdOaW1helcza1BBMEU5eUkwamxcL3J2eGZicFgrZE9tXC9kUERSd01CNUxFd2grcVBzXC9qM3FGYjBEZE1RV2JjRzU1bTd2V2h6SlRaZFNId01GdUZIZjRsWGt6ZkVTcXJTZ0V1V0xJQnRKbEFwNVhcL1Z6S2pFOG5pTXpxY3hLRG9McU95cXVlVDBza2FXaFFTSTZxbVhzUzlnb1ExaE5Hc3ZGeW0wdWxwM1dac2VNYWJBT0RuQ2lxR012Wml6b01vc3d0S2hlS05yTm5vRnNGRjZQUlphZVlTUjIzM3RWK2JUN29yV3VuZmV3RndVSFhRT0p6QlwvUzh1cDZ2QmRpZHE5enFJRWtqT2RPbGJWVnZYWTZnd1BwaTFGVUxxbmhxbTNYRnVKQ25iVXNscTZGZzU1b0tyNmpqbmp4M0c2ZWw3S1pKWWNpWEZWaVdGVG8xcW82aGVGdlBHWU56aUpLSkpHbFpjbk9iYU1PdnNTWm9TWFZRdHNSdm5zRnVobUIrcFFDNFhSaXcreklaVU1PQ3NZZlwvTlRHUVE1TEFRYStwajNQK3ZaMGMyIiwibWFjIjoiOWM4YjZhOGVlZjdjYzllNDg5MGRmYzUxYmUwYjFjYWIzYTBjNDVkMDg3ZGEwZDA1MjU0ZWIyN2MxMWE5ZWExOCJ9"
+                    "X-Authorization": "eyJpdiI6Inc3K2tPaUV1bCs0OE9SejA5amFYVXc9PSIsInZhbHVlIjoiSDFJV3k5WDk3V0dEUURZcnhUcWJYcmNKSnlNYTZ0WG1pK2E1R3NDSjNwZHNNUHkxYjg1d0ZKWWR1cGo4SFFnUkc3SEUzaE1xUjY1XC82NTlRaFAwSE5MVkdrRnNpTExGeDhTV3hYYXkxTWJBeHVSa3Z1ZVIweDBEUmtrdnNXcGlwTHU1VkdNM1c0YVQybmRMbVM5ZkZVOXQrXC9yVVRCdDlPK1lFYkZJY2NHTHRTY0RqOHJwcTdSNjQrTWQ1eHZ3TzhkWW0yUHl0RmlEczlkQlFqc1Y1YlNpc0ozSXpaUURYWm9sUmpaWk1jVEhObU5mVU5FSFwvSUp6Wm9nTHo2cTh1dE1FR2VaM2JVNVd1TzJsMEtkS1JwMnhNMnV4WXRcL2VTSVpHUHdrTlZLUnZ5TjRSY1hVTDRjTERwaUdob1B3anNOTnNkMWQ2d3JZSzhOQ3hWaW1cL2JwZE9TWkYyWFJKOEtQenY5UUZWbUhtZzhoQXpZcElOXC8ydlpHXC9Ra09OUUpINVwvUmlnMGN4MzA4aFQ0OUlhXC9lTzlQNXdHcHNRWklMYXRaWFkxR25oZlFKRWdlYTRjYzlcLzJWS0duUlNGUWhKUTciLCJtYWMiOiI5YTk4NTZkM2E5NjFlZWVjMGI0MjJiNDY0MzljMGU5NjkyZjM0MmIyNTY0YzNjY2I4M2FhNTljNWFlYzRmMDk2In0="
                 }
             });
 
