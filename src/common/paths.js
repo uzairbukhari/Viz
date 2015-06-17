@@ -29,15 +29,15 @@ angular.module('paths', []).service('Paths', function () {
         },
         dashboard: {
             getList: 'http://api.vizdum.com/dashboards',
-            get: 'http://api.vizdum.com/dashboards/1'
+            get: 'http://api.vizdum.com/dashboards/'
         },
         dashboardData: {
-            get: 'http://api.vizdum.com/data/dashboard/1',
+            get: 'http://api.vizdum.com/data/dashboard/',
             put: 'http://api.vizdum.com/dashboards/1'
         },
         widget: {
             get: 'http://api.vizdum.com/dashboards/1/widgets/2',
-            delete: 'http://api.vizdum.com/data/widget/1',
+            delete: 'http://api.vizdum.com/data/widget/',
             set: 'http://api.vizdum.com/dashboards/1/widgets',
             put: 'http://api.vizdum.com/dashboards/1/widgets/11'
         }

@@ -116,6 +116,7 @@ angular.module( 'Vizdum.home', [
         });
 
         $scope.selectDashboard = function (dashId) {
+            console.log('dashboard change event trigger');
             $scope.selectedDashboardId = dashId;
             var dashboards = $scope.dashboards;
             $scope.dashboard = $scope.dashboards[0];
@@ -136,11 +137,10 @@ angular.module( 'Vizdum.home', [
             };
             HttpServices.get(jsonObj).then(
                 function (response) {
-                    console.log(response);
                     $scope.dashboards = response;
                     // init dashboard
                     $scope.selectedDashboardId = $scope.dashboards[0].id;
-                    loadDashboard();
+                    //loadDashboard();
                 }
             );
         };
@@ -153,6 +153,7 @@ angular.module( 'Vizdum.home', [
             };
             HttpServices.get(jsonObj).then(
                 function (response) {
+                    console.log(response);
                     $scope.dashboard.widgets = response.widgets;
                     loadDashboardData();
                 }
@@ -162,7 +163,7 @@ angular.module( 'Vizdum.home', [
         var loadDashboardData = function () {
             var jsonObj = {
                 module: 'dashboardData',
-                param: ''
+                param: $scope.selectedDashboardId
             };
 
             HttpServices.get(jsonObj).then(
@@ -323,9 +324,18 @@ angular.module( 'Vizdum.home', [
         };
     })
 
-    .controller('CustomWidgetCtrl', function CustomWidgetCtrl($scope, $modal) {
+    .controller('CustomWidgetCtrl', function CustomWidgetCtrl($scope, $modal, HttpServices) {
         $scope.remove = function (widget) {
-            $scope.dashboard.widgets.splice($scope.dashboard.widgets.indexOf(widget), 1);
+            if(window.confirm('This will remove this widget. Are you sure?')) {
+                var jsonObj = {
+                    module: 'widget',
+                    param: widget.id
+                };
+
+                HttpServices.delete(jsonObj).then(function () {
+                    $scope.dashboard.widgets.splice($scope.dashboard.widgets.indexOf(widget), 1);
+                });
+            }
         };
 
         $scope.openSettings = function (widget) {
