@@ -12,6 +12,31 @@
 
 
         // ---
+        // HEADERS
+        function getHeaders () {
+            return {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT, DELETE',
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                "X-Authorization": getCookie('auth_token')
+            }
+        }
+
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for(var i=0; i<ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0)==' ') c = c.substring(1);
+                if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+            }
+            return "";
+        }
+
+        // ---
+
+        // ---
         // PUBLIC METHODS.
         // ---
 
@@ -32,13 +57,7 @@
                 method: "get",
                 url: url,
                 //params: jsonObj.param,
-                headers: {
-                    'Access-Control-Allow-Origin': '*',
-                    'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT',
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                    "X-Authorization": "eyJpdiI6Inc3K2tPaUV1bCs0OE9SejA5amFYVXc9PSIsInZhbHVlIjoiSDFJV3k5WDk3V0dEUURZcnhUcWJYcmNKSnlNYTZ0WG1pK2E1R3NDSjNwZHNNUHkxYjg1d0ZKWWR1cGo4SFFnUkc3SEUzaE1xUjY1XC82NTlRaFAwSE5MVkdrRnNpTExGeDhTV3hYYXkxTWJBeHVSa3Z1ZVIweDBEUmtrdnNXcGlwTHU1VkdNM1c0YVQybmRMbVM5ZkZVOXQrXC9yVVRCdDlPK1lFYkZJY2NHTHRTY0RqOHJwcTdSNjQrTWQ1eHZ3TzhkWW0yUHl0RmlEczlkQlFqc1Y1YlNpc0ozSXpaUURYWm9sUmpaWk1jVEhObU5mVU5FSFwvSUp6Wm9nTHo2cTh1dE1FR2VaM2JVNVd1TzJsMEtkS1JwMnhNMnV4WXRcL2VTSVpHUHdrTlZLUnZ5TjRSY1hVTDRjTERwaUdob1B3anNOTnNkMWQ2d3JZSzhOQ3hWaW1cL2JwZE9TWkYyWFJKOEtQenY5UUZWbUhtZzhoQXpZcElOXC8ydlpHXC9Ra09OUUpINVwvUmlnMGN4MzA4aFQ0OUlhXC9lTzlQNXdHcHNRWklMYXRaWFkxR25oZlFKRWdlYTRjYzlcLzJWS0duUlNGUWhKUTciLCJtYWMiOiI5YTk4NTZkM2E5NjFlZWVjMGI0MjJiNDY0MzljMGU5NjkyZjM0MmIyNTY0YzNjY2I4M2FhNTljNWFlYzRmMDk2In0="
-                }
+                headers: getHeaders()
             });
 
             return( request.then( handleSuccess, handleError ) );
@@ -59,13 +78,7 @@
                     action: "add"
                 },
                 data: jsonObj.data,
-                headers: {
-                    'Access-Control-Allow-Origin': '*',
-                    'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT',
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                    "X-Authorization": "eyJpdiI6Inc3K2tPaUV1bCs0OE9SejA5amFYVXc9PSIsInZhbHVlIjoiSDFJV3k5WDk3V0dEUURZcnhUcWJYcmNKSnlNYTZ0WG1pK2E1R3NDSjNwZHNNUHkxYjg1d0ZKWWR1cGo4SFFnUkc3SEUzaE1xUjY1XC82NTlRaFAwSE5MVkdrRnNpTExGeDhTV3hYYXkxTWJBeHVSa3Z1ZVIweDBEUmtrdnNXcGlwTHU1VkdNM1c0YVQybmRMbVM5ZkZVOXQrXC9yVVRCdDlPK1lFYkZJY2NHTHRTY0RqOHJwcTdSNjQrTWQ1eHZ3TzhkWW0yUHl0RmlEczlkQlFqc1Y1YlNpc0ozSXpaUURYWm9sUmpaWk1jVEhObU5mVU5FSFwvSUp6Wm9nTHo2cTh1dE1FR2VaM2JVNVd1TzJsMEtkS1JwMnhNMnV4WXRcL2VTSVpHUHdrTlZLUnZ5TjRSY1hVTDRjTERwaUdob1B3anNOTnNkMWQ2d3JZSzhOQ3hWaW1cL2JwZE9TWkYyWFJKOEtQenY5UUZWbUhtZzhoQXpZcElOXC8ydlpHXC9Ra09OUUpINVwvUmlnMGN4MzA4aFQ0OUlhXC9lTzlQNXdHcHNRWklMYXRaWFkxR25oZlFKRWdlYTRjYzlcLzJWS0duUlNGUWhKUTciLCJtYWMiOiI5YTk4NTZkM2E5NjFlZWVjMGI0MjJiNDY0MzljMGU5NjkyZjM0MmIyNTY0YzNjY2I4M2FhNTljNWFlYzRmMDk2In0="
-                }
+                headers: getHeaders()
             });
 
             return( request.then( handleSuccess, handleError ) );
@@ -85,13 +98,7 @@
                     action: "edit"
                 },
                 data: jsonObj.data,
-                headers: {
-                    'Access-Control-Allow-Origin': '*',
-                    'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT',
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                    "X-Authorization": "eyJpdiI6Inc3K2tPaUV1bCs0OE9SejA5amFYVXc9PSIsInZhbHVlIjoiSDFJV3k5WDk3V0dEUURZcnhUcWJYcmNKSnlNYTZ0WG1pK2E1R3NDSjNwZHNNUHkxYjg1d0ZKWWR1cGo4SFFnUkc3SEUzaE1xUjY1XC82NTlRaFAwSE5MVkdrRnNpTExGeDhTV3hYYXkxTWJBeHVSa3Z1ZVIweDBEUmtrdnNXcGlwTHU1VkdNM1c0YVQybmRMbVM5ZkZVOXQrXC9yVVRCdDlPK1lFYkZJY2NHTHRTY0RqOHJwcTdSNjQrTWQ1eHZ3TzhkWW0yUHl0RmlEczlkQlFqc1Y1YlNpc0ozSXpaUURYWm9sUmpaWk1jVEhObU5mVU5FSFwvSUp6Wm9nTHo2cTh1dE1FR2VaM2JVNVd1TzJsMEtkS1JwMnhNMnV4WXRcL2VTSVpHUHdrTlZLUnZ5TjRSY1hVTDRjTERwaUdob1B3anNOTnNkMWQ2d3JZSzhOQ3hWaW1cL2JwZE9TWkYyWFJKOEtQenY5UUZWbUhtZzhoQXpZcElOXC8ydlpHXC9Ra09OUUpINVwvUmlnMGN4MzA4aFQ0OUlhXC9lTzlQNXdHcHNRWklMYXRaWFkxR25oZlFKRWdlYTRjYzlcLzJWS0duUlNGUWhKUTciLCJtYWMiOiI5YTk4NTZkM2E5NjFlZWVjMGI0MjJiNDY0MzljMGU5NjkyZjM0MmIyNTY0YzNjY2I4M2FhNTljNWFlYzRmMDk2In0="
-                }
+                headers: getHeaders()
             });
 
             return( request.then( handleSuccess, handleError ) );
@@ -110,13 +117,7 @@
                 params: {
                     action: "DELETE"
                 },
-                headers: {
-                    'Access-Control-Allow-Origin': '*',
-                    'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT, DELETE',
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                    "X-Authorization": "eyJpdiI6Inc3K2tPaUV1bCs0OE9SejA5amFYVXc9PSIsInZhbHVlIjoiSDFJV3k5WDk3V0dEUURZcnhUcWJYcmNKSnlNYTZ0WG1pK2E1R3NDSjNwZHNNUHkxYjg1d0ZKWWR1cGo4SFFnUkc3SEUzaE1xUjY1XC82NTlRaFAwSE5MVkdrRnNpTExGeDhTV3hYYXkxTWJBeHVSa3Z1ZVIweDBEUmtrdnNXcGlwTHU1VkdNM1c0YVQybmRMbVM5ZkZVOXQrXC9yVVRCdDlPK1lFYkZJY2NHTHRTY0RqOHJwcTdSNjQrTWQ1eHZ3TzhkWW0yUHl0RmlEczlkQlFqc1Y1YlNpc0ozSXpaUURYWm9sUmpaWk1jVEhObU5mVU5FSFwvSUp6Wm9nTHo2cTh1dE1FR2VaM2JVNVd1TzJsMEtkS1JwMnhNMnV4WXRcL2VTSVpHUHdrTlZLUnZ5TjRSY1hVTDRjTERwaUdob1B3anNOTnNkMWQ2d3JZSzhOQ3hWaW1cL2JwZE9TWkYyWFJKOEtQenY5UUZWbUhtZzhoQXpZcElOXC8ydlpHXC9Ra09OUUpINVwvUmlnMGN4MzA4aFQ0OUlhXC9lTzlQNXdHcHNRWklMYXRaWFkxR25oZlFKRWdlYTRjYzlcLzJWS0duUlNGUWhKUTciLCJtYWMiOiI5YTk4NTZkM2E5NjFlZWVjMGI0MjJiNDY0MzljMGU5NjkyZjM0MmIyNTY0YzNjY2I4M2FhNTljNWFlYzRmMDk2In0="
-                }
+                headers: getHeaders()
             });
 
             return( request.then( handleSuccess, handleError ) );

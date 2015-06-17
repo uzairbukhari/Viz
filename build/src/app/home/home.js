@@ -423,7 +423,7 @@ angular.module( 'Vizdum.home', [
 
     })
 
-    .controller('NewDashboardCtrl', function WidgetSettingsCtrl($scope,$modal, dashboards) {
+    .controller('NewDashboardCtrl', function WidgetSettingsCtrl($scope,$modal, dashboards, HttpServices) {
         $scope.form = {
             name: ""
         };
@@ -437,48 +437,23 @@ angular.module( 'Vizdum.home', [
         };
 
         $scope.submit = function () {
-            var widgetConfig = {
-                    name: $scope.form.name,
-                    sizeX: 10,
-                    sizeY: 10,
-                    widget_type: $scope.form.widget_type,
-                    dashboard_id: $scope.selectedDashboardId,
-                    col: 0,
-                    row: 0
+            var dashConfig = {
+                    name: $scope.form.name
                 },
                 jsonObj = {
-                    module: 'widget',
-                    param:  $scope.selectedDashboardId + '/widgets',
-                    data: widgetConfig
+                    module: 'dashboard',
+                    param:  '',
+                    data: dashConfig
                 };
 
             HttpServices.set(jsonObj).then(function (resp) {
-                var getWidgetDataObj = {
-                    module: 'widget',
-                    param: resp.id
-                };
-                HttpServices.get(getWidgetDataObj).then(function (widgetData) {
-                    widgetConfig.id = resp.id;
-                    widgetConfig.data = widgetData.data;
-                    widgetConfig.labels = widgetData.labels;
-                    widgetConfig.series = widgetData.series;
+                console.log(resp);
+                dashboards.push(resp);
 
-                    $scope.dashboard.widgets.push(widgetConfig);
-                    $scope.saveDashboardData();
-                    $scope.modalCreateWidgetInstance.close();
-                });
+                $scope.selectedDashboardId = resp.id;
+                $scope.selectDashboard($scope.selectedDashboardId);
+                $scope.dismiss();
             });
-
-
-            var newDashboardId = $scope.form.name + "_" + Math.floor((Math.random() * 100) + 1);
-            dashboards.push({
-                "id": newDashboardId,
-                "name": $scope.form.name,
-                "widgets": []
-            });
-            $scope.selectedDashboardId = newDashboardId;
-            $scope.selectDashboard($scope.selectedDashboardId);
-            $scope.dismiss();
         };
 
     })
