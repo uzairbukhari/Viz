@@ -1,5 +1,5 @@
 <div>
-    <form name="_form" class="form-horizontal" ng-submit="submit(_form)">
+    <!--<form name="_form" class="form-horizontal" ng-submit="submit(_form)">
         <div class="modal-header">
             <button type="button" class="close" ng-click="dismiss()" aria-hidden="true">&times;</button>
             <h3>Add new widget</h3>
@@ -40,5 +40,36 @@
             <a ng-click="dismiss()" class="btn btn-default" tabindex="-1"><i class="glyphicon glyphicon-remove"></i>Cancel</a>
             <button type="submit" class="btn btn-primary btn-lg"><i class="glyphicon glyphicon-ok"></i>Save</button>
         </div>
-    </form>
+    </form>-->
+    <div class="form-horizontal">
+        <div class="modal-header">
+            <button type="button" class="close" ng-click="dismiss()" aria-hidden="true">&times;</button>
+            <h3>Adding widget : Step <span ng-bind="stepCounter"></span></h3>
+        </div>
+        <div class="modal-body">
+            <div ng-if="wizard.stepOne">
+                <ul>
+                    <li ng-repeat="widgetType in wizard.widgetTypes">
+                        <img src="./assets/images/{{widgetType.imageSrc}}" ng-click="nextStep(widgetType.name)"/>
+                    </li>
+                </ul>
+            </div>
+
+            <div ng-if="wizard.stepTwo">
+                <ul>
+                    <li ng-repeat="widgetSubType in wizard.widgetSubTypes">
+                        <img src="./assets/images/{{widgetSubType.imageSrc}}" ng-click="nextStep(widgetSubType.name)"/>
+                    </li>
+                </ul>
+            </div>
+            <div ng-if="wizard.stepThree">
+                <div ng-controller="widgetConfigController">
+                    <div my-configuration uzairconfig="wizard.selectedWidgetType"></div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button ng-click="nextStep()" class="btn btn-primary btn-lg"><i class="glyphicon glyphicon-ok"></i>Next Step</button>
+        </div>
+    </div>
 </div>

@@ -101,7 +101,7 @@ angular.module( 'Vizdum.home', [
         $scope.addWidget = function () {
             $scope.modalCreateWidgetInstance = $modal.open({
                 scope: $scope,
-                templateUrl: 'home/create_widget.tpl.html',
+                templateUrl: 'home/configuration_templates/create_widget.tpl.html',
                 controller: 'CreateWidgetCtrl',
                 resolve: {
                     dashboard: function () {
@@ -459,9 +459,55 @@ angular.module( 'Vizdum.home', [
     })
 
     .controller('CreateWidgetCtrl', function WidgetSettingsCtrl($scope,$modal, dashboard, HttpServices) {
+        $scope.stepCounter = 1;
+        $scope.wizard = {
+            widgetTypes: [
+                {
+                    "name": "facebook",
+                    "imageSrc": "fb_logo.jpg"
+                },
+                {
+                    "name": "google",
+                    "imageSrc": "google_logo.jpg"
+                }
+            ],
+            widgetSubTypes: [
+                {
+                    "name": "analytics",
+                    "imageSrc": "google_analytics_logo.png"
+                },
+                {
+                    "name": "adsense",
+                    "imageSrc": "google_adsense_logo.png"
+                },
+                {
+                    "name": "adword",
+                    "imageSrc": "google_adword_logo.jpg"
+                }
+            ],
+            selectedWidgetType: 'configuration',
+            stepOne: true,
+            stepTwo: false,
+            stepThree: false
+        };
+
         $scope.form = {
             name: "New Widget",
             widget_type: "line"
+        };
+
+        $scope.nextStep = function (widgetType) {
+            console.log(widgetType);
+            $scope.stepCounter++;
+            if($scope.stepCounter == 2) {
+                $scope.wizard.stepOne = false;
+                $scope.wizard.stepTwo = true;
+            }
+            else if($scope.stepCounter == 3) {
+                $scope.wizard.selectedWidgetType = widgetType;
+                $scope.wizard.stepThree = true;
+                $scope.wizard.stepTwo = false;
+            }
         };
 
         $scope.dismiss = function () {

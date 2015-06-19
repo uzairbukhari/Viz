@@ -1,4 +1,4 @@
-angular.module('templates-app', ['about/about.tpl.html', 'home/create_widget.tpl.html', 'home/home.tpl.html', 'home/new_dashboard.tpl.html', 'home/widget_settings.tpl.html']);
+angular.module('templates-app', ['about/about.tpl.html', 'home/configuration_templates/analytics_template.tpl.html', 'home/configuration_templates/configuration_template.tpl.html', 'home/configuration_templates/create_widget.tpl.html', 'home/home.tpl.html', 'home/new_dashboard.tpl.html', 'home/widget_settings.tpl.html']);
 
 angular.module("about/about.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("about/about.tpl.html",
@@ -270,10 +270,30 @@ angular.module("about/about.tpl.html", []).run(["$templateCache", function($temp
     "");
 }]);
 
-angular.module("home/create_widget.tpl.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("home/create_widget.tpl.html",
+angular.module("home/configuration_templates/analytics_template.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("home/configuration_templates/analytics_template.tpl.html",
     "<div>\n" +
-    "    <form name=\"_form\" class=\"form-horizontal\" ng-submit=\"submit(_form)\">\n" +
+    "    <h1>In Analytic Configuration</h1>\n" +
+    "    {{'This is a test'}} {{form.name}} {{$scope.hello}} {{scope.hello}}\n" +
+    "    {{hello}} {{widget}} {{widget.name}} {{scope}} {{$rootScope}} {{$rootScope.widget.name}} {{$rootScope.form.name}}\n" +
+    "    {{$rootScope.widget}}\n" +
+    "</div>\n" +
+    "");
+}]);
+
+angular.module("home/configuration_templates/configuration_template.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("home/configuration_templates/configuration_template.tpl.html",
+    "<div ng-controller=\"widgetConfigController\">\n" +
+    "    <!--Name: {{widget.firstName}} {{widget.lastName}} Address: {{widget.testString}} {{widget.testStringTwo}}\n" +
+    "    Test: {{form.name}}-->\n" +
+    "</div>\n" +
+    "");
+}]);
+
+angular.module("home/configuration_templates/create_widget.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("home/configuration_templates/create_widget.tpl.html",
+    "<div>\n" +
+    "    <!--<form name=\"_form\" class=\"form-horizontal\" ng-submit=\"submit(_form)\">\n" +
     "        <div class=\"modal-header\">\n" +
     "            <button type=\"button\" class=\"close\" ng-click=\"dismiss()\" aria-hidden=\"true\">&times;</button>\n" +
     "            <h3>Add new widget</h3>\n" +
@@ -314,7 +334,38 @@ angular.module("home/create_widget.tpl.html", []).run(["$templateCache", functio
     "            <a ng-click=\"dismiss()\" class=\"btn btn-default\" tabindex=\"-1\"><i class=\"glyphicon glyphicon-remove\"></i>Cancel</a>\n" +
     "            <button type=\"submit\" class=\"btn btn-primary btn-lg\"><i class=\"glyphicon glyphicon-ok\"></i>Save</button>\n" +
     "        </div>\n" +
-    "    </form>\n" +
+    "    </form>-->\n" +
+    "    <div class=\"form-horizontal\">\n" +
+    "        <div class=\"modal-header\">\n" +
+    "            <button type=\"button\" class=\"close\" ng-click=\"dismiss()\" aria-hidden=\"true\">&times;</button>\n" +
+    "            <h3>Adding widget : Step <span ng-bind=\"stepCounter\"></span></h3>\n" +
+    "        </div>\n" +
+    "        <div class=\"modal-body\">\n" +
+    "            <div ng-if=\"wizard.stepOne\">\n" +
+    "                <ul>\n" +
+    "                    <li ng-repeat=\"widgetType in wizard.widgetTypes\">\n" +
+    "                        <img src=\"./assets/images/{{widgetType.imageSrc}}\" ng-click=\"nextStep(widgetType.name)\"/>\n" +
+    "                    </li>\n" +
+    "                </ul>\n" +
+    "            </div>\n" +
+    "\n" +
+    "            <div ng-if=\"wizard.stepTwo\">\n" +
+    "                <ul>\n" +
+    "                    <li ng-repeat=\"widgetSubType in wizard.widgetSubTypes\">\n" +
+    "                        <img src=\"./assets/images/{{widgetSubType.imageSrc}}\" ng-click=\"nextStep(widgetSubType.name)\"/>\n" +
+    "                    </li>\n" +
+    "                </ul>\n" +
+    "            </div>\n" +
+    "            <div ng-if=\"wizard.stepThree\">\n" +
+    "                <div ng-controller=\"widgetConfigController\">\n" +
+    "                    <div my-configuration uzairconfig=\"wizard.selectedWidgetType\"></div>\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "        <div class=\"modal-footer\">\n" +
+    "            <button ng-click=\"nextStep()\" class=\"btn btn-primary btn-lg\"><i class=\"glyphicon glyphicon-ok\"></i>Next Step</button>\n" +
+    "        </div>\n" +
+    "    </div>\n" +
     "</div>\n" +
     "");
 }]);

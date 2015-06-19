@@ -19,7 +19,7 @@
                 'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT, DELETE',
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
-                "X-Authorization": getCookie('auth_token')
+                "X-Authorization": 'eyJpdiI6IndaeEV6MnFlSDJPM2ZBYmhMZ015SkE9PSIsInZhbHVlIjoiaEZZcVpaY3ZEVXpGQkpFelwvam1TVklcL25Jdm9vYzE2ajZZXC9CSDBqN3FLNzV0emRtZU1jQ0lPbFNZaFFyWThcL3k1ZUx3MDRwZXNpTDZKQVhyaXZoS2p6eVhmemhPdFh3cmI2WldrbHI5ek0xR0lKR3NoM1ZcL1dwc0VHb2hjTXZyWURzUDBaXC9VTUI3YmYraG8rbUFFOTJ2NG5rV01ubFVVMzc2eGVPQ1YrQnBWRE9NdmxrOExONmtyY1BneVpleGxOc0tQSkh3MlRDMkZwdUV0MXpBUGd2d3EwbUJibUpuMG8xZGE5ZmVTd0RFd2szMmpTVDE5cW52U1JXK04xaERpUFVadGhxSUpaYUdFeU1KUFZ4V1NVUG85TjE1VEJNZTZPRTE5alY3ZnU0aDhIcUlkQzhkM1pCNlR3Uk1JQ0VPTEZEcUNGQzdFVzA0SjJOK2piZGRMU3NQSzRHOG85clF0XC9Scm5HeUlUV0xmemp3MmE1RG1CSEZDSzZ3T0lqTXpJaWxGQlU1RTRtMmcyQTYzVm9HeDUySzdQY001Y2ZINUVcL1k0MDUxbWUydjM1VnA5cnFjY3E1OXF6Y3NMMnVJNENhIiwibWFjIjoiYjNiMmJkOTdhZWRiMzdhODZhNjQxYjIxMWRkN2QxM2NlYmRkMjU2ZWEyODRmZTdjN2RkOWEzMDM2MzYxNzJlYSJ9'//getCookie('auth_token')
             }
         }
 
